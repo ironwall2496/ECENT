@@ -1795,12 +1795,20 @@
                 "type": "password",
                 "required": true,
                 "rows": null
+            },
+            {
+                "label": "Acceso admin",
+                "value": "Nivel",
+                "type": "switch",
+                "required": true,
+                "rows": null
             }
         ],
         "formValue": {
             "Nombre": "",
             "Correo": "",
-            "Contraseña": ""
+            "Contraseña": "",
+            "Nivel": false
         },
         "payload": "",
         "submit": "submit",
