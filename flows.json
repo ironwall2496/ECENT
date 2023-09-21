@@ -200,8 +200,8 @@
         "name": "Default",
         "tab": "32ba53bb61634871",
         "order": 1,
-        "disp": true,
-        "width": 25,
+        "disp": false,
+        "width": "25",
         "collapse": false,
         "className": ""
     },
