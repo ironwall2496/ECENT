@@ -227,6 +227,17 @@
         "height": "1"
     },
     {
+        "id": "30b0fec615e802a3",
+        "type": "ui_group",
+        "name": "AGREGAR_DISPOSITIVOS",
+        "tab": "2f5241148c83dad3",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "75c5f1c6.56241",
         "type": "snmp",
         "z": "cc6838a177c7342d",
@@ -2077,6 +2088,199 @@
         "x": 420,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "a1c72886b7b7e46b",
+        "type": "ui_button",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "group": "8880d363.148ac",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ENVIAR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 640,
+        "y": 380,
+        "wires": [
+            [
+                "c03efa17c957158e",
+                "24d24ad40772d240",
+                "caf33d68f260c56c",
+                "0e3a082076cd4923",
+                "7edaca1f92bd7490"
+            ]
+        ]
+    },
+    {
+        "id": "7edaca1f92bd7490",
+        "type": "ui_dropdown",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "PROTOCOLO",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "30b0fec615e802a3",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "SNMP",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "MODBUS TCP",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "MQTT",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "DNP3",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "PROFIBUS",
+                "value": "5",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 820,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "caf33d68f260c56c",
+        "type": "ui_numeric",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "NUMERO DE DISPOSITIVO",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 860,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c03efa17c957158e",
+        "type": "ui_text_input",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "DEVICE_ID",
+        "tooltip": "",
+        "group": "8880d363.148ac",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 810,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "778c52f29e252a79",
+        "type": "ui_ui_control",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "events": "all",
+        "x": 240,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24d24ad40772d240",
+        "type": "ui_text_input",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "NOMBRE DE DISPOSITIVO",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 860,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0e3a082076cd4923",
+        "type": "ui_text_input",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "SERIAL",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 800,
+        "y": 500,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "9568c2b2.ae4098",
