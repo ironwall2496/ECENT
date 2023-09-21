@@ -2109,15 +2109,11 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 600,
+        "x": 1060,
         "y": 380,
         "wires": [
             [
-                "c03efa17c957158e",
-                "24d24ad40772d240",
-                "0e3a082076cd4923",
-                "7edaca1f92bd7490",
-                "debf9f2c4a7255e7"
+                "13ea76ebbebd3bd1"
             ]
         ]
     },
@@ -2170,7 +2166,7 @@
         "y": 540,
         "wires": [
             [
-                "13ea76ebbebd3bd1"
+                "a1c72886b7b7e46b"
             ]
         ]
     },
@@ -2196,7 +2192,7 @@
         "y": 380,
         "wires": [
             [
-                "13ea76ebbebd3bd1"
+                "a1c72886b7b7e46b"
             ]
         ]
     },
@@ -2234,7 +2230,7 @@
         "y": 420,
         "wires": [
             [
-                "13ea76ebbebd3bd1"
+                "a1c72886b7b7e46b"
             ]
         ]
     },
@@ -2260,7 +2256,7 @@
         "y": 500,
         "wires": [
             [
-                "13ea76ebbebd3bd1"
+                "a1c72886b7b7e46b"
             ]
         ]
     },
@@ -2277,7 +2273,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
+        "x": 1220,
         "y": 380,
         "wires": []
     },
@@ -2303,7 +2299,7 @@
         "y": 460,
         "wires": [
             [
-                "13ea76ebbebd3bd1"
+                "a1c72886b7b7e46b"
             ]
         ]
     },
