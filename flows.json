@@ -1724,6 +1724,75 @@
         "wires": []
     },
     {
+        "id": "f532e9f3d4e81caa",
+        "type": "ui_form",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "user_form",
+        "group": "8880d363.148ac",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "name",
+                "value": "Nombre",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "mail",
+                "value": "Correo",
+                "type": "email",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "password",
+                "value": "Contraseña",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Nombre": "",
+            "Correo": "",
+            "Contraseña": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "bff1125ecc8557e0"
+            ]
+        ]
+    },
+    {
+        "id": "bff1125ecc8557e0",
+        "type": "debug",
+        "z": "3a08c4b74583061b",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "9568c2b2.ae4098",
         "type": "http in",
         "z": "c714bad49d5eea2f",
