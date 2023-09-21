@@ -186,15 +186,6 @@
         "hidden": false
     },
     {
-        "id": "dfa31f8f56e99051",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "2f5241148c83dad3",
-        "order": 1,
-        "disp": true,
-        "width": 6
-    },
-    {
         "id": "9453c97445ddeae5",
         "type": "ui_tab",
         "name": "Dashboard",
