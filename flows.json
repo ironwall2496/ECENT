@@ -200,9 +200,9 @@
         "name": "credenciales",
         "tab": "32ba53bb61634871",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "13",
-        "collapse": true,
+        "collapse": false,
         "className": ""
     },
     {
