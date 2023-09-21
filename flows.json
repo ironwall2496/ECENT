@@ -2109,7 +2109,7 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 640,
+        "x": 600,
         "y": 380,
         "wires": [
             [
@@ -2276,7 +2276,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1120,
+        "x": 1100,
         "y": 380,
         "wires": []
     },
