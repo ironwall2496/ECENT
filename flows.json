@@ -1809,11 +1809,12 @@
         "topicType": "msg",
         "splitLayout": false,
         "className": "",
-        "x": 280,
+        "x": 220,
         "y": 80,
         "wires": [
             [
-                "bff1125ecc8557e0"
+                "bff1125ecc8557e0",
+                "20094f0f121d4b80"
             ]
         ]
     },
@@ -1831,6 +1832,22 @@
         "statusType": "auto",
         "x": 430,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "20094f0f121d4b80",
+        "type": "ui_table",
+        "z": "3a08c4b74583061b",
+        "group": "8880d363.148ac",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 410,
+        "y": 120,
         "wires": []
     },
     {
