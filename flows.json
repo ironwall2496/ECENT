@@ -1762,9 +1762,9 @@
         "name": "",
         "label": "Crear Usuarios",
         "group": "f5593a50b71e940e",
-        "order": 1,
+        "order": 4,
         "width": 7,
-        "height": 2,
+        "height": 1,
         "options": [
             {
                 "label": "Nombre",
@@ -1840,7 +1840,7 @@
         "z": "3a08c4b74583061b",
         "group": "f5593a50b71e940e",
         "name": "USUARIOS",
-        "order": 2,
+        "order": 1,
         "width": 18,
         "height": 2,
         "columns": [
