@@ -217,17 +217,6 @@
         "className": ""
     },
     {
-        "id": "26187e3546b0274a",
-        "type": "ui_group",
-        "name": "Group 3",
-        "tab": "32ba53bb61634871",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "78c63e88e19d03e7",
         "type": "ui_spacer",
         "z": "3a08c4b74583061b",
