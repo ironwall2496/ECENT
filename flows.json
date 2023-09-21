@@ -1714,6 +1714,16 @@
         ]
     },
     {
+        "id": "c2d1f4ccf0c9b1aa",
+        "type": "comment",
+        "z": "3a08c4b74583061b",
+        "name": "tabla para gestion de usuarios",
+        "info": "",
+        "x": 320,
+        "y": 20,
+        "wires": []
+    },
+    {
         "id": "9568c2b2.ae4098",
         "type": "http in",
         "z": "c714bad49d5eea2f",
