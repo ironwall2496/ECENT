@@ -1,0 +1,12 @@
+{
+    "name": "Software_de_monitoreo_teknica",
+    "description": "Sistema de monitoreo de equipos industriales que permite recolectar metricas, establecer alertas y mostrar informacion de los equipos en tiepo real. el sistema se comunica con los equipos a través de los siguientes protocolos (MODBUS, SNMP, MQTT, TCP)inicialmente, con opción para agregar nuevos protocolos a futuro",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

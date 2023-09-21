@@ -1,0 +1,2444 @@
+[
+    {
+        "id": "cc6838a177c7342d",
+        "type": "tab",
+        "label": "Comunicación SNMP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dff60124d5ffe814",
+        "type": "tab",
+        "label": "Comunicación MODBUS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "793151554c09c1fc",
+        "type": "tab",
+        "label": "Base de Datos 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3a08c4b74583061b",
+        "type": "tab",
+        "label": "DASHBOARD ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c714bad49d5eea2f",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "87b644f3cb5524d4",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8880d363.148ac",
+        "type": "ui_group",
+        "name": "Usuarios",
+        "tab": "db58ad1a.e37a8",
+        "order": 2,
+        "disp": false,
+        "width": 19,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a844720c.608d6",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "ecent_db",
+        "tz": "",
+        "charset": ""
+    },
+    {
+        "id": "db58ad1a.e37a8",
+        "type": "ui_tab",
+        "name": "Test stuff",
+        "icon": "dashboard"
+    },
+    {
+        "id": "e0e7f6b3a1435cd3",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "75c5f1c6.56241",
+        "type": "snmp",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "oids": "1.3.6.1.2.1.1.1.0",
+        "name": "DESCRIPCIÓN DEL SYSTEMA",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "745075e8deea71c2"
+            ]
+        ]
+    },
+    {
+        "id": "e5a4f80b.8bfa38",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 91.00001525878906,
+        "y": 100,
+        "wires": [
+            [
+                "75c5f1c6.56241"
+            ]
+        ]
+    },
+    {
+        "id": "d085f9e6.016858",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9ff12da9.82a26",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 76,
+        "y": 161,
+        "wires": [
+            [
+                "ff62d996.816d78"
+            ]
+        ]
+    },
+    {
+        "id": "867ded10.3458c",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490.9999237060547,
+        "y": 161,
+        "wires": []
+    },
+    {
+        "id": "ff62d996.816d78",
+        "type": "snmp",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "oids": "1.3.6.1.2.1.2.2.1.8.1,\n1.3.6.1.2.1.2.2.1.8.2,\n1.3.6.1.2.1.2.2.1.8.3,\n1.3.6.1.2.1.2.2.1.8.4,\n1.3.6.1.2.1.2.2.1.8.5,\n1.3.6.1.2.1.2.2.1.8.6,\n1.3.6.1.2.1.2.2.1.8.7,\n1.3.6.1.2.1.2.2.1.8.8",
+        "name": "Port status 1-8 (table ok)",
+        "x": 278.9999694824219,
+        "y": 161,
+        "wires": [
+            [
+                "867ded10.3458c"
+            ]
+        ]
+    },
+    {
+        "id": "21b3235e.e5379c",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "net-snmp",
+        "info": "",
+        "x": 231.9999542236328,
+        "y": 15,
+        "wires": []
+    },
+    {
+        "id": "947eb302.1f486",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "TERMINADO",
+        "info": "",
+        "x": 243.9999542236328,
+        "y": 54,
+        "wires": []
+    },
+    {
+        "id": "68d042a.123f7bc",
+        "type": "snmp subtree",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "oids": "1.3.6.1.2.1.2.2.1.8",
+        "name": "Subtree",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "209eddb8.540ba2"
+            ]
+        ]
+    },
+    {
+        "id": "397962ad.644eee",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 72,
+        "y": 559,
+        "wires": [
+            [
+                "68d042a.123f7bc"
+            ]
+        ]
+    },
+    {
+        "id": "209eddb8.540ba2",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 508.99998474121094,
+        "y": 557,
+        "wires": []
+    },
+    {
+        "id": "93ab7e15.044be",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "SYSTEMA",
+        "info": "descripción del switch\n",
+        "x": 1160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6fc78485.5f542c",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "Subtree",
+        "info": "Faster to use than multiple single \nrequests.\n",
+        "x": 748,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f02e6eb2b0ae37ac",
+        "type": "snmp table",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "20",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "authprot": "MD5",
+        "privprot": "DES",
+        "oids": "1.3.6.1.2.1.1.1",
+        "name": "",
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "b829a91b1ca2580b"
+            ]
+        ]
+    },
+    {
+        "id": "47dd075ff8780ec1",
+        "type": "snmp walker",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "10",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "authprot": "MD5",
+        "privprot": "DES",
+        "oids": "1.3",
+        "name": "",
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "6fdf5bfbc16dea37"
+            ]
+        ]
+    },
+    {
+        "id": "5e685a8fbb7e1a7b",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 70,
+        "y": 380,
+        "wires": [
+            [
+                "f02e6eb2b0ae37ac"
+            ]
+        ]
+    },
+    {
+        "id": "64ddd976da6d61f5",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 70,
+        "y": 440,
+        "wires": [
+            [
+                "47dd075ff8780ec1"
+            ]
+        ]
+    },
+    {
+        "id": "b829a91b1ca2580b",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6fdf5bfbc16dea37",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "745075e8deea71c2",
+        "type": "function",
+        "z": "cc6838a177c7342d",
+        "name": "convertidor buffer to string",
+        "func": "var datos = msg.payload[0].value;\nvar datos_cambiados = datos.toString();\nmsg.payload[0].value = datos_cambiados;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "d085f9e6.016858",
+                "53bf7ff10e25a1b3"
+            ]
+        ]
+    },
+    {
+        "id": "b706e6bb4e8c9f31",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "VERIFICACIÓN DE PUERTOS",
+        "info": "si value == 2\n    # no hay equipos conectados en el puerto\nsi value == 1\n    # hay equipos concados al puerto\n",
+        "x": 810,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "beaddfdd.d8557",
+        "type": "inject",
+        "z": "cc6838a177c7342d",
+        "name": "Test",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "x": 67,
+        "y": 614,
+        "wires": [
+            [
+                "9251c612.173468"
+            ]
+        ]
+    },
+    {
+        "id": "9251c612.173468",
+        "type": "snmp walker",
+        "z": "cc6838a177c7342d",
+        "host": "192.168.0.100",
+        "version": "2c",
+        "timeout": "10",
+        "community": "public",
+        "auth": "noAuthNoPriv",
+        "oids": "1.3.6.1.2.1.2.2.1.8",
+        "name": "Walker",
+        "x": 253.00001525878906,
+        "y": 614,
+        "wires": [
+            [
+                "bc259f1e.7e5ea"
+            ]
+        ]
+    },
+    {
+        "id": "bc259f1e.7e5ea",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 503.99998474121094,
+        "y": 612,
+        "wires": []
+    },
+    {
+        "id": "b8b080f4.8398c",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "Walker",
+        "info": "This wil take time to iterate and\ndump the whole OID table.",
+        "x": 748,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "cfc69548aa83431b",
+        "type": "snmp-trap-listener",
+        "z": "cc6838a177c7342d",
+        "port": 162,
+        "snmpV1": true,
+        "snmpV2": true,
+        "snmpV3": true,
+        "communities": [
+            {
+                "community": "public"
+            },
+            {
+                "community": "private"
+            }
+        ],
+        "users": [],
+        "ipfilter": "127.0.0.1",
+        "ipmask": "",
+        "x": 90,
+        "y": 500,
+        "wires": [
+            [
+                "ce17168e71d85eb9"
+            ]
+        ]
+    },
+    {
+        "id": "ce17168e71d85eb9",
+        "type": "debug",
+        "z": "cc6838a177c7342d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ecd2f0e2d835f0de",
+        "type": "comment",
+        "z": "cc6838a177c7342d",
+        "name": "-------------------PRUEBAS----------------------",
+        "info": "",
+        "x": 300,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "53bf7ff10e25a1b3",
+        "type": "ui_text",
+        "z": "cc6838a177c7342d",
+        "group": "8880d363.148ac",
+        "order": 1,
+        "width": 9,
+        "height": 1,
+        "name": "",
+        "label": "Descripción del sistema",
+        "format": "{{msg.payload[0].value}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2a63c806.ae4db8",
+        "type": "mysql",
+        "z": "793151554c09c1fc",
+        "mydb": "a844720c.608d6",
+        "name": "MYSQL",
+        "x": 258,
+        "y": 269,
+        "wires": [
+            [
+                "3d0af460.41906c",
+                "a03b0066.3ff5a"
+            ]
+        ]
+    },
+    {
+        "id": "86ab4360.50c6c",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "Criteria",
+        "func": "var timeE = msg.payload;\n//Restrict the query to pull the last 24hrs\n//of data instead of the whole db\nmsg.payload = (timeE - (1000*60*60*24));\n    node.status({text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 75,
+        "y": 270,
+        "wires": [
+            [
+                "308dd6b1.2a193a"
+            ]
+        ]
+    },
+    {
+        "id": "11c8f8a2.d97147",
+        "type": "template",
+        "z": "793151554c09c1fc",
+        "name": "Format query 2",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT\n CEILING(time/3600000)*3600000 AS timestamp,\n AVG(data1) AS `data1`,\n AVG(data2) AS `data2`\nFROM dbasename\nWHERE time > {{payload}}\nGROUP BY `timestamp`;",
+        "output": "str",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d0af460.41906c",
+        "type": "debug",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 461,
+        "y": 269,
+        "wires": []
+    },
+    {
+        "id": "272494b.eb3d36c",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Timestamp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 75,
+        "y": 220,
+        "wires": [
+            [
+                "86ab4360.50c6c"
+            ]
+        ]
+    },
+    {
+        "id": "755e08a5.08de88",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "Flow to query database and format for chart",
+        "info": "",
+        "x": 181,
+        "y": 170,
+        "wires": []
+    },
+    {
+        "id": "433d9ca4.076774",
+        "type": "mysql",
+        "z": "793151554c09c1fc",
+        "mydb": "a844720c.608d6",
+        "name": "MYSQL",
+        "x": 234,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d59a31e8.d3772",
+        "type": "template",
+        "z": "793151554c09c1fc",
+        "name": "Format data",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO `ecent_db` (`data1`,`data2`,`time`) VALUES ({{data1}},{{data2}},{{time}})",
+        "output": "str",
+        "x": 81,
+        "y": 100,
+        "wires": [
+            [
+                "433d9ca4.076774"
+            ]
+        ]
+    },
+    {
+        "id": "2b71188f.3e2428",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "Flow to insert data into the database",
+        "info": "",
+        "x": 150,
+        "y": 50,
+        "wires": []
+    },
+    {
+        "id": "308dd6b1.2a193a",
+        "type": "template",
+        "z": "793151554c09c1fc",
+        "name": "Format query 1",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT data1,data2,time FROM DATOS_SNMP WHERE time > {{payload}}",
+        "output": "str",
+        "x": 260,
+        "y": 219,
+        "wires": [
+            [
+                "2a63c806.ae4db8"
+            ]
+        ]
+    },
+    {
+        "id": "a03b0066.3ff5a",
+        "type": "change",
+        "z": "793151554c09c1fc",
+        "name": "Format data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(\t  $series := [\t    { \"field\": \"data1\", \"label\": \"data1 label\" },\t    { \"field\": \"data2\", \"label\": \"data2 label\" }\t  ];\t  $xaxis := \"timestamp\";\t  [\t    {\t      \"series\": $series.label,\t      \"data\": $series.[\t        (\t          $yaxis := $.field;\t          $$.payload.{\t            \"x\": $lookup($, $xaxis),\t            \"y\": $lookup($, $yaxis)\t          }\t        )\t      ]\t    }\t  ]\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 464,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2b09f39.2ac5d",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 440,
+        "wires": [
+            [
+                "9b2cfd89.80b03"
+            ]
+        ]
+    },
+    {
+        "id": "9b2cfd89.80b03",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "INSERT Data",
+        "func": "msg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\",\"Department_name\",\"test\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "cbf82508.506aa8",
+        "type": "debug",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e4a98c17.08f2d",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 500,
+        "wires": [
+            [
+                "5addf67b.173138"
+            ]
+        ]
+    },
+    {
+        "id": "5addf67b.173138",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "Update Data",
+        "func": "msg.topic = \"Update Department Set Department_name = ? where Department_id=?\";\nmsg.payload=['Logistics Managers','3']\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "e4201ad4.996998",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "warehouse",
+        "payloadType": "str",
+        "x": 70,
+        "y": 680,
+        "wires": [
+            [
+                "be458293.0fb91"
+            ]
+        ]
+    },
+    {
+        "id": "be458293.0fb91",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "SELECT Data",
+        "func": "msg.topic = \"SELECT * FROM department WHERE department_name LIKE '%\" + msg.payload + \"%'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 680,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "9c203b7a.d31738",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "INSERT Bind - via JSON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "INSERT INTO test (id,text) VALUES (?, ?)",
+        "payload": "[4, \"This is a funny world's end\"]",
+        "payloadType": "str",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            [
+                "404656b9.7048b8"
+            ]
+        ]
+    },
+    {
+        "id": "404656b9.7048b8",
+        "type": "json",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "421f97c2.5607f8",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go \"Warehouse\"",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "%Warehouse%",
+        "payloadType": "str",
+        "x": 100,
+        "y": 740,
+        "wires": [
+            [
+                "778ca316.16ea8c"
+            ]
+        ]
+    },
+    {
+        "id": "778ca316.16ea8c",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "SELECT Data",
+        "func": "msg.topic = \"SELECT * FROM Department WHERE Department_Name LIKE ?\";\nmsg.payload = [msg.payload];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 760,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "632ef9df.2db478",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go \"MAnagers\"",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "%Managers%",
+        "payloadType": "str",
+        "x": 100,
+        "y": 780,
+        "wires": [
+            [
+                "778ca316.16ea8c"
+            ]
+        ]
+    },
+    {
+        "id": "4d7282eb.906e7c",
+        "type": "mysql",
+        "z": "793151554c09c1fc",
+        "mydb": "a844720c.608d6",
+        "name": "",
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "cbf82508.506aa8"
+            ]
+        ]
+    },
+    {
+        "id": "88f58b45.552b48",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "Delete Bind",
+        "func": "msg.topic = \"Delete From department where Department_id = ?\";\nmsg.payload = [ \"6\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 620,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "8be8aa44.6b7868",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 620,
+        "wires": [
+            [
+                "88f58b45.552b48"
+            ]
+        ]
+    },
+    {
+        "id": "a2cac161.b5ebf",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "INSERT Data",
+        "func": "msg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\nmsg.payload = [ \"test\"];\nreturn msg;\n\nmsg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\",\"Department_name\",\"test\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "4d7282eb.906e7c"
+            ]
+        ]
+    },
+    {
+        "id": "cabc5ca6.c3e37",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "Go",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 70,
+        "y": 380,
+        "wires": [
+            [
+                "a2cac161.b5ebf"
+            ]
+        ]
+    },
+    {
+        "id": "b6c8fb60d8443dae",
+        "type": "mysql",
+        "z": "793151554c09c1fc",
+        "mydb": "a844720c.608d6",
+        "name": "Gestión de Base de datos ecent",
+        "x": 850,
+        "y": 900,
+        "wires": [
+            [
+                "0315f2096d009ec8"
+            ]
+        ]
+    },
+    {
+        "id": "e346a0199e82a4d3",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREAR TABLA \"USUARIOS\" EN LA BASE DE DATOS ecent_db",
+        "func": "msg.topic = \"CREATE TABLE USUARIOS(USER_ID int NOT NULL AUTO_INCREMENT, NAME VARCHAR(255), EMAIL VARCHAR(255), PASSWORD VARBINARY(8000), LEVEL VARCHAR(255), PRIMARY KEY (USER_ID))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 900,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "0315f2096d009ec8",
+        "type": "debug",
+        "z": "793151554c09c1fc",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "c6137a378f6cbd31",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 900,
+        "wires": [
+            [
+                "e346a0199e82a4d3"
+            ]
+        ]
+    },
+    {
+        "id": "86605c0af76f067c",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "--------LOGICA PARA CREACIÓN DE TABLAS GENERALES--------",
+        "info": "",
+        "x": 420,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "92d22adee49f01cd",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "NORMBRE DEL EQUIPO",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1300,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "0a6ba25f2dd487e2",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "DIRECCIÓN IP DE EQUIPO",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1340,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "567edfc04245aceb",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "TIPO DE DATO DEL EQUIPO",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1540,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "bbda29c35c370214",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "OID CONSULTADO ",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1420,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "4f670719d02a1151",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "CONSULTA DE DATOS BASICOS DEL EQUIPO",
+        "info": "",
+        "x": 480,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "7e90da3029a9a476",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "CONSULTA DE DATOS ESPECIFICOS POR QUIPOS",
+        "info": "",
+        "x": 460,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "d7d125e720629a9c",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "VALOR CONSULTADO",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1460,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "eef0835d784fb808",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "UNIDAD DEL VALOR CONSULTADO",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1500,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ],
+        "info": "VOLTAJE = V\r\nAMPERIOS = A\r\nTIEMPO = T\r\nPOTENCIA = W\r\nNO APLICA = N/A\r\n"
+    },
+    {
+        "id": "b59d7a124292679e",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREAR TABLA \"DISPOSITIVOS\" EN LA BASE DE DATOS ecent_db",
+        "func": "msg.topic = \"CREATE TABLE DISPOSITIVOS(DEVICE_ID int NOT NULL AUTO_INCREMENT, NOMBRE VARCHAR(255), SERIAL VARCHAR(255), PROTOCOL int NOT NULL, PRIMARY KEY (DEVICE_ID), USER_ID int NOT NULL, FOREIGN KEY (USER_ID) REFERENCES USUARIOS(USER_ID))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 940,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "5f2451ad6b842b3e",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREAR TABLA \"SNMP_CONFIG\" EN LA BASE DE DATOS ecent_db",
+        "func": "msg.topic = \"CREATE TABLE SNMP_CONFIG(SNMP_CONFIG_ID int NOT NULL AUTO_INCREMENT, PRIMARY KEY (SNMP_CONFIG_ID), IP VARCHAR(255), PORT VARCHAR(255), READ_COM VARCHAR(255), WRITE_COM VARCHAR(255), SNMP_VERSION VARCHAR(255), DEVICE_ID int NOT NULL, FOREIGN KEY (DEVICE_ID) REFERENCES DISPOSITIVOS(DEVICE_ID))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1020,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "09fee58cf7c482de",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREAR TABLA \"SNMP_RULES\" EN LA BASE DE DATOS ecent_db",
+        "func": "msg.topic = \"CREATE TABLE SNMP_RULES(SNMP_CONFIG_ID int NOT NULL, FOREIGN KEY (SNMP_CONFIG_ID) REFERENCES SNMP_CONFIG(SNMP_CONFIG_ID), OID VARCHAR(255), OPERATION VARCHAR(255), PRIMARY KEY (OID))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1060,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "8bc517f0b87a440e",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREAR TABLA \"DATOS_SNMP\" EN LA BASE DE DATOS ecent_db",
+        "func": "msg.topic = \"CREATE TABLE DATOS_SNMP(OID VARCHAR(255), FOREIGN KEY (OID) REFERENCES SNMP_RULES(OID), VALUE VARCHAR(255), UNITY VARCHAR(255))\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1100,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "485779787c5df8f9",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 940,
+        "wires": [
+            [
+                "b59d7a124292679e"
+            ]
+        ]
+    },
+    {
+        "id": "f707e6c89d2b59f7",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 1020,
+        "wires": [
+            [
+                "5f2451ad6b842b3e"
+            ]
+        ]
+    },
+    {
+        "id": "97aa032e31af9c3f",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 1060,
+        "wires": [
+            [
+                "09fee58cf7c482de"
+            ]
+        ]
+    },
+    {
+        "id": "6dbe25d2362381ed",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 1100,
+        "wires": [
+            [
+                "8bc517f0b87a440e"
+            ]
+        ]
+    },
+    {
+        "id": "c9c130a872ce1901",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "--------LOGICA PARA CREACIÓN DE TABLAS SNMP--------",
+        "info": "",
+        "x": 450,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "a2f5d7ce9313fafa",
+        "type": "comment",
+        "z": "793151554c09c1fc",
+        "name": "LOGICA DE CRUD PARA TABLA DE USUARIOS",
+        "info": "",
+        "x": 480,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "8823ab04a259b959",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "CREATE-QUERY",
+        "func": "msg.topic = \"INSERT INTO USUARIOS (??, ??, ??, ??) VALUES (??, ??, ??, ??)\";\nmsg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\nmsg.payload = [\"test\"];\nreturn msg;\n\nmsg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\", \"Department_name\", \"test\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1180,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "50f1a843ba21bf70",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 1180,
+        "wires": [
+            [
+                "8823ab04a259b959"
+            ]
+        ]
+    },
+    {
+        "id": "3b72ce3cbff40b8a",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "update-query",
+        "func": "msg.topic=\"UPDATE test SET name='\" + msg.payload.name + \"', lastname='\" + msg.payload.lastname + \"', code='\" + msg.payload.code + \"', married='\" + msg.payload.married + \"' WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9568c2b2.ae4098",
+        "type": "http in",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "url": "/update",
+        "method": "put",
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "de0d507c.2e3c6"
+            ]
+        ]
+    },
+    {
+        "id": "80b7d10e.159df",
+        "type": "http response",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "x": 842,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a8dde467.e5dcd8",
+        "type": "template",
+        "z": "c714bad49d5eea2f",
+        "name": "Web Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en-GB\">\n<head>\n    <title>Users</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css\" />\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css\" />\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js\"></script>\n\n    <script type=\"text/javascript\">\n        $(function () {\n            console.log(\"crud demo\");\n\n            var db = {{#payload}}{{{.}}}{{/payload}};\n\n            $(\"#jsgrid\").jsGrid({\n                width: \"100%\",\n                inserting: true,\n                editing: true,\n                sorting: true,\n                paging: true,\n\n                data: db,\n\n                fields: [\n                    { title:\"ID\", name: \"id\", type: \"number\", width: 20, readOnly: true },\n                    { title:\"User ID\", name: \"userID\", type: \"text\", width: 50 },\n                    { title:\"First Name\", name: \"foreName\", type: \"text\", width: 50 },\n                    { title:\"Last Name\", name: \"sirName\", type: \"text\", width: 50 },\n                    { title:\"Age\", name: \"age\", type:\"number\", width: 25},\n                    { type: \"control\" }\n                ],\n           \n                controller: {\n                    insertItem: function(item) {\n                        return $.ajax({\n                            type: \"POST\",\n                            url: \"/insert\",\n                            data: item\n                        });\n                    },\n                    updateItem: function(item) {\n                       return $.ajax({\n                            type: \"PUT\",\n                            url: \"/update\",\n                            data: item\n                        });\n                    },\n                    deleteItem: function(item) {\n                        return $.ajax({\n                            type: \"DELETE\",\n                            url: \"/delete\",\n                            data: item\n                        });\n                    }\n                }   \n            });\n        });\n    \n  </script>\n</head>\n<body class=\"container\">\n    <section class=\"row\">\n        \n        <div class=\"col-md-6\"></div>\n        <div class=\"col-md-6\" id=\"jsgrid\">\n        </div>\n    </section>\n</body>\n</html>\n\n",
+        "x": 632,
+        "y": 116,
+        "wires": [
+            [
+                "e4bd0337.229be8"
+            ]
+        ]
+    },
+    {
+        "id": "3fa8dafa.229966",
+        "type": "http in",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "url": "/index",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 116,
+        "wires": [
+            [
+                "5a339947.2e2cf8"
+            ]
+        ]
+    },
+    {
+        "id": "e4bd0337.229be8",
+        "type": "http response",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "x": 842,
+        "y": 116,
+        "wires": []
+    },
+    {
+        "id": "66d97ed7.39f1c",
+        "type": "http response",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "x": 842,
+        "y": 244,
+        "wires": []
+    },
+    {
+        "id": "a60ce791.6f5ae8",
+        "type": "http in",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "url": "/insert",
+        "method": "post",
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 244,
+        "wires": [
+            [
+                "9ca4b651.6f2aa8"
+            ]
+        ]
+    },
+    {
+        "id": "5f79d9fd.25c4f",
+        "type": "http in",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "url": "/delete",
+        "method": "delete",
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 308,
+        "wires": [
+            [
+                "fe020366.04d91"
+            ]
+        ]
+    },
+    {
+        "id": "17b5b5c4.a8a7b2",
+        "type": "http response",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "x": 842,
+        "y": 308,
+        "wires": []
+    },
+    {
+        "id": "a2dfdc4a.dc161",
+        "type": "function",
+        "z": "c714bad49d5eea2f",
+        "name": "Generate dummy data",
+        "func": "const firstNames =  [\"Liam\",\"Noah\",\"Oliver\",\"William\",\"Elijah\",\"James\",\"Benjamin\",\"Lucas\",\"Mason\",\"Ethan\",\"Alexander\",\"Henry\",\"Jacob\",\"Michael\",\"Daniel\",\"Logan\",\"Jackson\",\"Sebastian\",\"Jack\",\"Aiden\"];\nconst sirNames = [\"Jones\",\"Taylor\",\"Williams\",\"Brown\",\"White\",\"Harris\",\"Martin\",\"Davies\",\"Wilson\",\"Cooper\",\"Evans\",\"King\",\"Thomas\",\"Baker\",\"Green\",\"Wright\",\"Johnson\",\"Edwards\",\"Clark\",\"Roberts\",\"Robinson\",\"Hall\",\"Lewis\",\"Young\",\"Davis\",\"Turner\",\"Hill\",\"Phillips\",\"Collins\",\"Allen\",\"Moore\",\"Thompson\",\"Carter\",\"James\",\"Knight\",\"Walker\",\"Wood\",\"Hughes\",\"Parker\",\"Ward\",\"Bennett\",\"Cook\",\"Webb\",\"Bailey\",\"Scott\",\"Jackson\",\"Lee\",\"Cox\"];\n         \n         \n\nvar database = [];\n\nfor(let i = 1; i <= 30; i++) {\n    var item = {\"id\":i, \"timestamp\":Date.now()};\n    item.foreName = randomFirstname();\n    item.sirName = randomSirname();\n    item.userID = \"U\" + randomInt(1000, 2999);\n    item.age = randomInt(20, 65);\n    database.push(item);\n}\n\n\nfunction randomFirstname() {\n   return firstNames[randomInt(0, firstNames.length-1)];\n}\n\nfunction randomSirname() {\n    return sirNames[randomInt(0, sirNames.length-1)];\n}\n\nfunction randomInt(min, max) { \n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\nflow.set(\"database\", database);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 348,
+        "y": 36,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b023f12.50205",
+        "type": "inject",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 71,
+        "y": 36,
+        "wires": [
+            [
+                "a2dfdc4a.dc161"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "de0d507c.2e3c6",
+        "type": "function",
+        "z": "c714bad49d5eea2f",
+        "name": "update-query",
+        "func": "\nvar database = flow.get(\"database\") || [];\n\nvar item = database.find(e => e.id == msg.payload.id );\n\nif(msg.payload.foreName == \"\" || msg.payload.sirName == \"\" || msg.payload.userID == \"\") {\n    msg.statusCode = 400;\n    msg.payload = null;\n    return msg;\n}\n\nif(item) {\n    item.foreName = msg.payload.foreName;\n    item.sirName = msg.payload.sirName;\n    item.age = msg.payload.age;\n    item.userID = msg.payload.userID;\n    flow.set(\"database\", database);\n} else {\n    msg.statusCode = 404;//not found\n    msg.payload = null;\n    return msg;\n}\nmsg.payload = item;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 302,
+        "y": 180,
+        "wires": [
+            [
+                "80b7d10e.159df"
+            ]
+        ]
+    },
+    {
+        "id": "9ca4b651.6f2aa8",
+        "type": "function",
+        "z": "c714bad49d5eea2f",
+        "name": "insert-query",
+        "func": "var database = flow.get(\"database\") || [];\nvar nextID = Math.max.apply(Math, database.map(function(o) { return o.id; })) + 1;\nvar item = {\n    id: nextID,\n    timestamp: Date.now(),\n    foreName : msg.payload.foreName,\n    sirName : msg.payload.sirName,\n    age : msg.payload.age,\n    userID : msg.payload.userID,\n}\n\nif(item.foreName == \"\" || item.sirName == \"\" || item.userID == \"\") {\n    msg.statusCode = 400;\n    msg.payload = null;\n    return msg;\n}\n\ndatabase.push(item);\nflow.set(\"database\", database);\n\nmsg.payload = item;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 302,
+        "y": 244,
+        "wires": [
+            [
+                "66d97ed7.39f1c"
+            ]
+        ]
+    },
+    {
+        "id": "fe020366.04d91",
+        "type": "function",
+        "z": "c714bad49d5eea2f",
+        "name": "delete-query",
+        "func": "\nvar database = flow.get(\"database\") || [];\n\ndatabase = database.filter(function( obj ) {\n    return obj.id != msg.payload.id;\n});\n\nflow.set(\"database\", database);\n\nmsg.payload = database;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 302,
+        "y": 308,
+        "wires": [
+            [
+                "17b5b5c4.a8a7b2"
+            ]
+        ]
+    },
+    {
+        "id": "5a339947.2e2cf8",
+        "type": "function",
+        "z": "c714bad49d5eea2f",
+        "name": "get database",
+        "func": "\nvar database = flow.get(\"database\") || [];\nmsg.payload = database;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 302,
+        "y": 116,
+        "wires": [
+            [
+                "43fff851.e2c7f8"
+            ]
+        ]
+    },
+    {
+        "id": "43fff851.e2c7f8",
+        "type": "json",
+        "z": "c714bad49d5eea2f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 458,
+        "y": 116,
+        "wires": [
+            [
+                "a8dde467.e5dcd8"
+            ]
+        ]
+    },
+    {
+        "id": "b589a61f9d3c3c9a",
+        "type": "ui_table",
+        "z": "c714bad49d5eea2f",
+        "group": "8880d363.148ac",
+        "name": "tabla de usuarios",
+        "order": 2,
+        "width": 10,
+        "height": 1,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 310,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d433feb1.6365e",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/index",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 60,
+        "wires": [
+            [
+                "98b6cece.37871"
+            ]
+        ]
+    },
+    {
+        "id": "98b6cece.37871",
+        "type": "template",
+        "z": "87b644f3cb5524d4",
+        "name": "web-template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n   <head>\n      <!-- The jQuery library is a prerequisite for all jqSuite products -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/jquery.min.js\"></script> \n      <!-- We support more than 40 localizations -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js\"></script>\n      <!-- This is the Javascript file of jqGrid -->   \n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js\"></script>\n      <!-- This is the localization file of the grid controlling messages, labels, etc.\n      <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://struts.jgeppert.com/struts2-jquery-grid-showcase/themes/showcase/jquery-ui.css\" />\n      <!-- The link to the CSS that the grid needs -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://www.guriddo.net/demo/css/trirand/ui.jqgrid.css\" />\n      <meta charset=\"utf-8\" />\n      <title>Demo CRUD with jqGrid</title>\n      <script type=\"text/javascript\"></script>\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.css\" />\n   </head>\n   <body>\n      <script type=\"text/javascript\" language=\"javascript\" src=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.js?0=0&0=0&0=0\"></script>\n      <table id=\"jqGrid\"></table>\n      <div id=\"jqGridPager\"></div>\n      <script type=\"text/javascript\"> \n         $(document).ready(function () {\n             $(\"#jqGrid\").jqGrid({\n                 url: '/search',\n                 mtype: \"GET\",\n                 datatype: \"json\",\n                 colModel: [\n                     { label: 'ID', name: 'id', key: true, search: false, width: 75 },\n                     { label: 'Name', name: 'name', width: 150, editable: true, formoptions: { colpos: 1, rowpos: 1 }  },\n                     { label: 'Last Name', name: 'lastname', width: 150, editable: true, edittype: \"select\", formoptions: { colpos: 1, rowpos: 2 },\n                       editoptions: {\n                            dataUrl:'/search/lastname',\n                            type:\"GET\",\n                            buildSelect: function(data) {\n                                var response = jQuery.parseJSON(data); //JSON data\n                                var s = '<select>';\n                                if (response && response.length) {\n                                    s += '<option hidden=\"true\">--- Select Lastname ---</option>';\n                                    for (var i = 0, l=response.length; i<l ; i++) {\n                                    var id = response[i].id;\n                                    var val = response[i].value; \n                                    // You can concatenate ID or any other string here\n                                    //For example: var ri = response[i].id + response[i].value; \n                                        s += '<option value=\"'+id+'\">'+val+'</option>';\n                                    }\n                                }\n                                return s + \"</select>\";\n                            } \n                         } \n                     },\n                     { label: 'Code', name: 'code', width: 150, editable: true, formoptions: { colpos: 2, rowpos: 1 } },  \n                     { label: 'Married', name: 'married', width: 150, align: \"center\", search: false, editable: true, edittype: \"checkbox\", formatter: \"checkbox\", editoptions: { value: \"1:0\" }, formoptions: { colpos: 2, rowpos: 2 } }\n                 ],\n                 width: 500,\n                 height: 260,\n                 rowNum: 10,\n                 loadonce: true,\n                 viewrecords: true,\n                 pager: \"#jqGridPager\"\n             });\n             \n             $('#jqGrid').navGrid('#jqGridPager',\n                 // The buttons to appear on the toolbar of the grid\n                 { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: \"left\", cloneToTop: true },\n                 \n                 // Options for the Edit Dialog\n                 {\n                     url: '/update',\n                     editCaption: \"The Edit Dialog\",\n                     recreateForm: true,\n\t\t\t\t\t //checkOnUpdate : true,\n\t\t\t\t\t //checkOnSubmit : true,\n\t\t\t\t\t beforeSubmit : function( postdata, form , oper) {\n\t\t\t\t\t\t if(confirm('Are you sure you want to update this information?') ) {\n\t\t\t\t\t\t\t // Do something\n\t\t\t\t\t\t \t return [true,'/update'];\n\t\t\t\t\t\t } else {\n\t\t\t\t\t\t\treturn [false, 'Update failed!'];\n\t\t\t\t\t\t }\n\t\t\t\t\t },\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterEdit: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Add Dialog\n                 {\n                     url: '/insert',\n                     addCaption: \"Add Dialog\",\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterAdd: true,\n                     recreateForm: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Delete Dialog\n                 {   \n                     url: '/delete',\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n             });\n             $(\"#jqGrid\").jqGrid('filterToolbar', { stringResult: true, searchOnEnter: true });\n         });\n      </script>\n   </body>\n</html>",
+        "x": 340,
+        "y": 60,
+        "wires": [
+            [
+                "3c1830eb.33b9"
+            ]
+        ]
+    },
+    {
+        "id": "3c1830eb.33b9",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1060,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ef285826.0e9738",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/search",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "e396f56a.dcda38"
+            ]
+        ]
+    },
+    {
+        "id": "e396f56a.dcda38",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "search-query",
+        "func": "//msg.topic=\"SELECT CONCAT('M00','',test.id) AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nmsg.topic=\"SELECT test.id AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "9fe2ed80.2522c"
+            ]
+        ]
+    },
+    {
+        "id": "458b0528.a4d98c",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1060,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d84f16f7.3d9698",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "search-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 725,
+        "y": 120,
+        "wires": [
+            [
+                "2b952c3a.f63884"
+            ]
+        ]
+    },
+    {
+        "id": "2b952c3a.f63884",
+        "type": "json",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "458b0528.a4d98c"
+            ]
+        ]
+    },
+    {
+        "id": "c91568f0.c3f2f8",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/insert",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "81bb8cdf.93e5b"
+            ]
+        ]
+    },
+    {
+        "id": "e4b82091.b8e9a",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "insert-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 715,
+        "y": 240,
+        "wires": [
+            [
+                "c224cbcf.e3e718"
+            ]
+        ]
+    },
+    {
+        "id": "81bb8cdf.93e5b",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "insert-query",
+        "func": "msg.topic=\"INSERT INTO test (name,lastname,code,married,timestamp) VALUES ('\" + msg.payload.name + \"','\" + msg.payload.lastname + \"','\" + msg.payload.code + \"','\" + msg.payload.married + \"',CURRENT_TIMESTAMP)\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "50307401.f1297c"
+            ]
+        ]
+    },
+    {
+        "id": "c224cbcf.e3e718",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "x": 1060,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9929a22b.66471",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "lastname-query",
+        "func": "msg.topic=\"SELECT id, lastname as value FROM lastname\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "6ce2248e.9c889c"
+            ]
+        ]
+    },
+    {
+        "id": "4bfc0ef6.e8511",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "lastname-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 725,
+        "y": 180,
+        "wires": [
+            [
+                "7b9f8d8b.c6d4e4"
+            ]
+        ]
+    },
+    {
+        "id": "c70c0833.831ab8",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/search/lastname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "9929a22b.66471"
+            ]
+        ]
+    },
+    {
+        "id": "f92b07.fa8e84f8",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1060,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7b9f8d8b.c6d4e4",
+        "type": "json",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 910,
+        "y": 180,
+        "wires": [
+            [
+                "f92b07.fa8e84f8"
+            ]
+        ]
+    },
+    {
+        "id": "857ff60c.da9078",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/delete",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 360,
+        "wires": [
+            [
+                "5b19502.0bae0b"
+            ]
+        ]
+    },
+    {
+        "id": "9a8b3fa.c0817c",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "delete-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 715,
+        "y": 360,
+        "wires": [
+            [
+                "4520409.a2751c"
+            ]
+        ]
+    },
+    {
+        "id": "5b19502.0bae0b",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "delete-query",
+        "func": "msg.topic=\"DELETE FROM test WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "973e8aa6.834338"
+            ]
+        ]
+    },
+    {
+        "id": "4520409.a2751c",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "x": 1060,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b9aef47c.8f0938",
+        "type": "http in",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "url": "/update",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 300,
+        "wires": [
+            [
+                "930f03c1.94bd5"
+            ]
+        ]
+    },
+    {
+        "id": "ece93a93.ebc878",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "update-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 725,
+        "y": 300,
+        "wires": [
+            [
+                "e51fe384.1db73"
+            ]
+        ]
+    },
+    {
+        "id": "930f03c1.94bd5",
+        "type": "function",
+        "z": "87b644f3cb5524d4",
+        "name": "update-query",
+        "func": "msg.topic=\"UPDATE test SET name='\" + msg.payload.name + \"', lastname='\" + msg.payload.lastname + \"', code='\" + msg.payload.code + \"', married='\" + msg.payload.married + \"' WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "c1934c38.6647d"
+            ]
+        ]
+    },
+    {
+        "id": "e51fe384.1db73",
+        "type": "http response",
+        "z": "87b644f3cb5524d4",
+        "name": "",
+        "x": 1060,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9fe2ed80.2522c",
+        "type": "mysql",
+        "z": "87b644f3cb5524d4",
+        "mydb": "a844720c.608d6",
+        "name": "database",
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "d84f16f7.3d9698"
+            ]
+        ]
+    },
+    {
+        "id": "6ce2248e.9c889c",
+        "type": "mysql",
+        "z": "87b644f3cb5524d4",
+        "mydb": "a844720c.608d6",
+        "name": "database",
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "4bfc0ef6.e8511"
+            ]
+        ]
+    },
+    {
+        "id": "50307401.f1297c",
+        "type": "mysql",
+        "z": "87b644f3cb5524d4",
+        "mydb": "a844720c.608d6",
+        "name": "database",
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "e4b82091.b8e9a"
+            ]
+        ]
+    },
+    {
+        "id": "c1934c38.6647d",
+        "type": "mysql",
+        "z": "87b644f3cb5524d4",
+        "mydb": "a844720c.608d6",
+        "name": "database",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "ece93a93.ebc878"
+            ]
+        ]
+    },
+    {
+        "id": "973e8aa6.834338",
+        "type": "mysql",
+        "z": "87b644f3cb5524d4",
+        "mydb": "a844720c.608d6",
+        "name": "database",
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [
+                "9a8b3fa.c0817c"
+            ]
+        ]
+    }
+]
