@@ -208,8 +208,8 @@
     {
         "id": "edcf9a7bf066cd27",
         "type": "ui_group",
-        "name": "lista_usuarios",
-        "tab": "32ba53bb61634871",
+        "name": "lista_dispositivos",
+        "tab": "2f5241148c83dad3",
         "order": 2,
         "disp": true,
         "width": "10",
@@ -1859,7 +1859,7 @@
         "id": "20094f0f121d4b80",
         "type": "ui_table",
         "z": "3a08c4b74583061b",
-        "group": "edcf9a7bf066cd27",
+        "group": "f5593a50b71e940e",
         "name": "USUARIOS",
         "order": 1,
         "width": 0,
@@ -1920,6 +1920,162 @@
         "cts": false,
         "x": 430,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ed02e587befc96c7",
+        "type": "comment",
+        "z": "3a08c4b74583061b",
+        "name": "tabla para gestion de dispositivos",
+        "info": "",
+        "x": 310,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "97317cc0dce5c19a",
+        "type": "ui_form",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "Agregar dispositivos",
+        "group": "edcf9a7bf066cd27",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "DEVICE_ID",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "NAME",
+                "value": "NOMBRE",
+                "type": "email",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "SERIAL",
+                "value": "SERIAL",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "ID_USER",
+                "value": "ID USUARIO",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "DEVICE_ID": "",
+            "NOMBRE": "",
+            "SERIAL": "",
+            "ID USUARIO": ""
+        },
+        "payload": "",
+        "submit": "ENVIAR",
+        "cancel": "CANCELAR",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 220,
+        "y": 440,
+        "wires": [
+            [
+                "74bb564475ef001f",
+                "53f5b3b6b2c7d4d8"
+            ]
+        ]
+    },
+    {
+        "id": "74bb564475ef001f",
+        "type": "debug",
+        "z": "3a08c4b74583061b",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "53f5b3b6b2c7d4d8",
+        "type": "ui_table",
+        "z": "3a08c4b74583061b",
+        "group": "edcf9a7bf066cd27",
+        "name": "DISPOSITIVOS",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "ID",
+                "title": "ID",
+                "width": "",
+                "align": "center",
+                "formatter": "rownum",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "NAME",
+                "title": "NOMBRE",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "EMAIL",
+                "title": "CORREO",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "PASSWORD",
+                "title": "CONTRASEÑA",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "LEVEL",
+                "title": "ADMINISTRADOR",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 420,
+        "y": 440,
         "wires": []
     },
     {
