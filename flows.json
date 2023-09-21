@@ -1847,7 +1847,7 @@
         "id": "20094f0f121d4b80",
         "type": "ui_table",
         "z": "3a08c4b74583061b",
-        "group": "8880d363.148ac",
+        "group": "f5593a50b71e940e",
         "name": "",
         "order": 1,
         "width": 0,
@@ -1858,37 +1858,6 @@
         "x": 410,
         "y": 120,
         "wires": []
-    },
-    {
-        "id": "7e550125a9debff8",
-        "type": "ui_dropdown",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "prueba",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "8880d363.148ac",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "Nombre",
-                "value": "gabriel",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 200,
-        "y": 160,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "9568c2b2.ae4098",
