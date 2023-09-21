@@ -1802,8 +1802,8 @@
             "Nivel": false
         },
         "payload": "",
-        "submit": "submit",
-        "cancel": "cancel",
+        "submit": "ENVIAR",
+        "cancel": "CANCELAR",
         "topic": "topic",
         "topicType": "msg",
         "splitLayout": false,
