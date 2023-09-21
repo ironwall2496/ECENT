@@ -51,10 +51,10 @@
         "id": "8880d363.148ac",
         "type": "ui_group",
         "name": "Usuarios",
-        "tab": "db58ad1a.e37a8",
+        "tab": "9453c97445ddeae5",
         "order": 2,
         "disp": false,
-        "width": 19,
+        "width": "19",
         "collapse": false,
         "className": ""
     },
@@ -67,12 +67,6 @@
         "db": "ecent_db",
         "tz": "",
         "charset": ""
-    },
-    {
-        "id": "db58ad1a.e37a8",
-        "type": "ui_tab",
-        "name": "Test stuff",
-        "icon": "dashboard"
     },
     {
         "id": "e0e7f6b3a1435cd3",
@@ -172,6 +166,53 @@
                 "py": 0
             }
         }
+    },
+    {
+        "id": "32ba53bb61634871",
+        "type": "ui_tab",
+        "name": "Gestión de Usuraios",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2f5241148c83dad3",
+        "type": "ui_tab",
+        "name": "Gestión de dispositivos",
+        "icon": "",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dfa31f8f56e99051",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "2f5241148c83dad3",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "9453c97445ddeae5",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f5593a50b71e940e",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "32ba53bb61634871",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "75c5f1c6.56241",
@@ -1729,7 +1770,7 @@
         "z": "3a08c4b74583061b",
         "name": "",
         "label": "Crear Usuarios",
-        "group": "8880d363.148ac",
+        "group": "f5593a50b71e940e",
         "order": 1,
         "width": 0,
         "height": 0,
