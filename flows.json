@@ -201,7 +201,7 @@
         "tab": "32ba53bb61634871",
         "order": 1,
         "disp": false,
-        "width": "13",
+        "width": 5,
         "collapse": false,
         "className": ""
     },
@@ -212,7 +212,7 @@
         "tab": "32ba53bb61634871",
         "order": 2,
         "disp": true,
-        "width": "15",
+        "width": 10,
         "collapse": true,
         "className": ""
     },
@@ -1774,8 +1774,8 @@
         "label": "Crear Usuarios",
         "group": "f5593a50b71e940e",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "options": [
             {
                 "label": "Nombre",
@@ -1852,8 +1852,8 @@
         "group": "edcf9a7bf066cd27",
         "name": "USUARIOS",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "columns": [
             {
                 "field": "ID",
