@@ -2115,9 +2115,9 @@
             [
                 "c03efa17c957158e",
                 "24d24ad40772d240",
-                "caf33d68f260c56c",
                 "0e3a082076cd4923",
-                "7edaca1f92bd7490"
+                "7edaca1f92bd7490",
+                "debf9f2c4a7255e7"
             ]
         ]
     },
@@ -2168,34 +2168,6 @@
         "className": "",
         "x": 820,
         "y": 540,
-        "wires": [
-            [
-                "13ea76ebbebd3bd1"
-            ]
-        ]
-    },
-    {
-        "id": "caf33d68f260c56c",
-        "type": "ui_numeric",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "NUMERO DE DISPOSITIVO",
-        "tooltip": "",
-        "group": "30b0fec615e802a3",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "format": "{{value}}",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "className": "",
-        "x": 860,
-        "y": 460,
         "wires": [
             [
                 "13ea76ebbebd3bd1"
@@ -2307,6 +2279,32 @@
         "x": 1120,
         "y": 380,
         "wires": []
+    },
+    {
+        "id": "debf9f2c4a7255e7",
+        "type": "ui_text_input",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "label": "NUMERO DE DISPOSITIVO",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 860,
+        "y": 460,
+        "wires": [
+            [
+                "13ea76ebbebd3bd1"
+            ]
+        ]
     },
     {
         "id": "9568c2b2.ae4098",
