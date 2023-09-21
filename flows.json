@@ -1728,28 +1728,28 @@
         "type": "ui_form",
         "z": "3a08c4b74583061b",
         "name": "",
-        "label": "user_form",
+        "label": "Crear Usuarios",
         "group": "8880d363.148ac",
         "order": 1,
         "width": 0,
         "height": 0,
         "options": [
             {
-                "label": "name",
+                "label": "Nombre",
                 "value": "Nombre",
                 "type": "text",
                 "required": true,
                 "rows": null
             },
             {
-                "label": "mail",
+                "label": "Correo",
                 "value": "Correo",
                 "type": "email",
                 "required": true,
                 "rows": null
             },
             {
-                "label": "password",
+                "label": "Contraseña",
                 "value": "Contraseña",
                 "type": "password",
                 "required": true,
@@ -1766,9 +1766,9 @@
         "cancel": "cancel",
         "topic": "topic",
         "topicType": "msg",
-        "splitLayout": "",
+        "splitLayout": true,
         "className": "",
-        "x": 260,
+        "x": 280,
         "y": 80,
         "wires": [
             [
