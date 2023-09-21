@@ -212,7 +212,7 @@
         "tab": "32ba53bb61634871",
         "order": 2,
         "disp": true,
-        "width": 10,
+        "width": "10",
         "collapse": true,
         "className": ""
     },
@@ -1921,27 +1921,6 @@
         "x": 430,
         "y": 120,
         "wires": []
-    },
-    {
-        "id": "ace1646fef5fea86",
-        "type": "ui_template",
-        "z": "3a08c4b74583061b",
-        "group": "8880d363.148ac",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "var time = msg.payload.time;\nvar d = new Date();\nvar current = d.getTime();\nvar panelid=2;\n\nmsg.fromdate = \"now-\" + time;\nmsg.enddate = \"now\";\nmsg.refresh = msg.payload.refresh;\n\nmsg.template= \"<iframe \"+\n\" id=\\\"powerchart\\\" \"+\n\" style=\\\"width:100%; height:100%; overflow:hidden; margin:auto; border:none;\\\" \"+\n\" src=https://mydashboard.com:8444/d/zGx-37WRz/realtime-power?orgId=1\"+ \"&amp;refresh=\" + msg.refresh\n    + \"&amp;theme=dark\" + \"&amp;from=\" + msg.fromdate + \"&amp;to=\" + msg.enddate + \"&amp;panelId=\" +panelid\n    + \"&amp;fullscreen\" + \"&amp;kiosk\" +\"> </iframe>\";\n\nreturn msg;",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 220,
-        "y": 500,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "9568c2b2.ae4098",
