@@ -2315,7 +2315,7 @@
         "fwdInMessages": true,
         "resendOnRefresh": true,
         "templateScope": "local",
-        "className": "",
+        "className": "material",
         "x": 220,
         "y": 700,
         "wires": [
