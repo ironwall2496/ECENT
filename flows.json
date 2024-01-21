@@ -2316,8 +2316,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 300,
-        "y": 720,
+        "x": 220,
+        "y": 700,
         "wires": [
             []
         ]
@@ -2331,21 +2331,6 @@
         "x": 260,
         "y": 660,
         "wires": []
-    },
-    {
-        "id": "0e0a694a1ec9722c",
-        "type": "node-red-contrib-basicauth",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "realm": "",
-        "username": "",
-        "password": "",
-        "x": 230,
-        "y": 800,
-        "wires": [
-            [],
-            []
-        ]
     },
     {
         "id": "9568c2b2.ae4098",
