@@ -201,7 +201,7 @@
         "tab": "32ba53bb61634871",
         "order": 1,
         "disp": false,
-        "width": 30,
+        "width": "30",
         "collapse": false,
         "className": ""
     },
@@ -1871,8 +1871,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 60,
+        "x": 420,
+        "y": 120,
         "wires": []
     },
     {
@@ -2262,6 +2262,45 @@
         "info": "",
         "x": 300,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "23b26f9b2a061f7f",
+        "type": "ui_button",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "group": "f5593a50b71e940e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ACTUALIZAR TABLA",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 160,
+        "wires": [
+            [
+                "60ba0f0d175f2ffb"
+            ]
+        ]
+    },
+    {
+        "id": "60ba0f0d175f2ffb",
+        "type": "link out",
+        "z": "3a08c4b74583061b",
+        "name": "ACTUALIZAR_TABLA",
+        "mode": "link",
+        "links": [],
+        "x": 375,
+        "y": 160,
         "wires": []
     },
     {
