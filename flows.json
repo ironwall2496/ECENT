@@ -1847,7 +1847,7 @@
         "submit": "ENVIAR",
         "cancel": "CANCELAR",
         "topic": "topic",
-        "topicType": "msg",
+        "topicType": "global",
         "splitLayout": false,
         "className": "",
         "x": 220,
