@@ -1854,7 +1854,8 @@
         "y": 120,
         "wires": [
             [
-                "bff1125ecc8557e0"
+                "bff1125ecc8557e0",
+                "95dc8724c8ec6e62"
             ]
         ]
     },
@@ -1871,7 +1872,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 620,
         "y": 120,
         "wires": []
     },
@@ -2311,6 +2312,49 @@
         "info": "",
         "x": 480,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "95dc8724c8ec6e62",
+        "type": "change",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "3f99d999ec35962a"
+            ]
+        ]
+    },
+    {
+        "id": "3f99d999ec35962a",
+        "type": "debug",
+        "z": "3a08c4b74583061b",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 80,
         "wires": []
     },
     {
