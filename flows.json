@@ -1801,7 +1801,7 @@
         "id": "f532e9f3d4e81caa",
         "type": "ui_form",
         "z": "3a08c4b74583061b",
-        "name": "",
+        "name": "datos_usuarios",
         "label": "Crear Usuarios",
         "group": "f5593a50b71e940e",
         "order": 2,
@@ -1846,7 +1846,7 @@
         "payload": "",
         "submit": "ENVIAR",
         "cancel": "CANCELAR",
-        "topic": "topic",
+        "topic": "topic.payload",
         "topicType": "msg",
         "splitLayout": false,
         "className": "",
@@ -1854,8 +1854,7 @@
         "y": 120,
         "wires": [
             [
-                "bff1125ecc8557e0",
-                "95dc8724c8ec6e62"
+                "bff1125ecc8557e0"
             ]
         ]
     },
@@ -2313,33 +2312,6 @@
         "x": 480,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "95dc8724c8ec6e62",
-        "type": "change",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 80,
-        "wires": [
-            [
-                "3f99d999ec35962a"
-            ]
-        ]
     },
     {
         "id": "3f99d999ec35962a",
