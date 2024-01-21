@@ -201,7 +201,7 @@
         "tab": "32ba53bb61634871",
         "order": 1,
         "disp": false,
-        "width": 5,
+        "width": 30,
         "collapse": false,
         "className": ""
     },
@@ -1804,7 +1804,7 @@
         "name": "",
         "label": "Crear Usuarios",
         "group": "f5593a50b71e940e",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "options": [
