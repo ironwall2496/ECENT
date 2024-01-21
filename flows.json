@@ -2197,18 +2197,6 @@
         ]
     },
     {
-        "id": "778c52f29e252a79",
-        "type": "ui_ui_control",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "events": "all",
-        "x": 240,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "24d24ad40772d240",
         "type": "ui_text_input",
         "z": "3a08c4b74583061b",
