@@ -1887,7 +1887,7 @@
         "height": 0,
         "columns": [
             {
-                "field": "Nombre",
+                "field": "msg.payload.Nombre",
                 "title": "NAME",
                 "width": "",
                 "align": "center",
@@ -1897,7 +1897,7 @@
                 }
             },
             {
-                "field": "Correo",
+                "field": "msg.payload.Correo",
                 "title": "CORREO",
                 "width": "",
                 "align": "center",
@@ -1907,7 +1907,7 @@
                 }
             },
             {
-                "field": "Contraseña",
+                "field": "msg.payload[\"Contraseña\"]",
                 "title": "CONTRASEÑA",
                 "width": "",
                 "align": "center",
@@ -1917,7 +1917,7 @@
                 }
             },
             {
-                "field": "Nivel",
+                "field": "msg.payload.Nivel",
                 "title": "ADMINISTRADOR",
                 "width": "",
                 "align": "center",
