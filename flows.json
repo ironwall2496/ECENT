@@ -2395,6 +2395,8 @@
         "type": "http response",
         "z": "c714bad49d5eea2f",
         "name": "",
+        "statusCode": "",
+        "headers": {},
         "x": 842,
         "y": 116,
         "wires": []
