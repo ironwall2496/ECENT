@@ -190,7 +190,7 @@
         "type": "ui_tab",
         "name": "Dashboard",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -232,6 +232,7 @@
         "type": "ui_tab",
         "name": "ECENT_LOGIN",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -242,7 +243,7 @@
         "tab": "52e58177bcac8732",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 28,
         "collapse": false,
         "className": ""
     },
@@ -2306,7 +2307,7 @@
         "z": "3a08c4b74583061b",
         "group": "fae35d82aba33488",
         "name": "",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
@@ -2330,6 +2331,21 @@
         "x": 260,
         "y": 660,
         "wires": []
+    },
+    {
+        "id": "0e0a694a1ec9722c",
+        "type": "node-red-contrib-basicauth",
+        "z": "3a08c4b74583061b",
+        "name": "",
+        "realm": "",
+        "username": "",
+        "password": "",
+        "x": 230,
+        "y": 800,
+        "wires": [
+            [],
+            []
+        ]
     },
     {
         "id": "9568c2b2.ae4098",
