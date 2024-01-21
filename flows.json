@@ -1854,8 +1854,7 @@
         "y": 120,
         "wires": [
             [
-                "bff1125ecc8557e0",
-                "20094f0f121d4b80"
+                "bff1125ecc8557e0"
             ]
         ]
     },
@@ -1872,68 +1871,9 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 80,
+        "x": 440,
+        "y": 60,
         "wires": []
-    },
-    {
-        "id": "20094f0f121d4b80",
-        "type": "ui_table",
-        "z": "3a08c4b74583061b",
-        "group": "f5593a50b71e940e",
-        "name": "USUARIOS",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "columns": [
-            {
-                "field": "msg.payload.Nombre",
-                "title": "NAME",
-                "width": "",
-                "align": "center",
-                "formatter": "rownum",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload.Correo",
-                "title": "CORREO",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload[\"Contraseña\"]",
-                "title": "CONTRASEÑA",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload.Nivel",
-                "title": "ADMINISTRADOR",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            }
-        ],
-        "outputs": 1,
-        "cts": true,
-        "x": 430,
-        "y": 120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "ed02e587befc96c7",
