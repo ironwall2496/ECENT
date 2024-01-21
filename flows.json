@@ -32,9 +32,9 @@
         "env": []
     },
     {
-        "id": "c714bad49d5eea2f",
+        "id": "c3e94525eaf21c0a",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "test_crud",
         "disabled": false,
         "info": "",
         "env": []
@@ -238,6 +238,14 @@
         "width": 28,
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "d48d08d1.d221d8",
+        "type": "MySQLdatabase",
+        "host": "",
+        "port": "",
+        "db": "",
+        "tz": ""
     },
     {
         "id": "75c5f1c6.56241",
@@ -2322,262 +2330,444 @@
         "wires": []
     },
     {
-        "id": "9568c2b2.ae4098",
+        "id": "d433feb1.6365e",
         "type": "http in",
-        "z": "c714bad49d5eea2f",
-        "name": "",
-        "url": "/update",
-        "method": "put",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 110,
-        "y": 180,
-        "wires": [
-            [
-                "de0d507c.2e3c6"
-            ]
-        ]
-    },
-    {
-        "id": "80b7d10e.159df",
-        "type": "http response",
-        "z": "c714bad49d5eea2f",
-        "name": "",
-        "x": 842,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "a8dde467.e5dcd8",
-        "type": "template",
-        "z": "c714bad49d5eea2f",
-        "name": "Web Template",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<!DOCTYPE html>\n<html lang=\"en-GB\">\n<head>\n    <title>Users</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css\" />\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css\" />\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js\"></script>\n\n    <script type=\"text/javascript\">\n        $(function () {\n            console.log(\"crud demo\");\n\n            var db = {{#payload}}{{{.}}}{{/payload}};\n\n            $(\"#jsgrid\").jsGrid({\n                width: \"100%\",\n                inserting: true,\n                editing: true,\n                sorting: true,\n                paging: true,\n\n                data: db,\n\n                fields: [\n                    { title:\"ID\", name: \"id\", type: \"number\", width: 20, readOnly: true },\n                    { title:\"User ID\", name: \"userID\", type: \"text\", width: 50 },\n                    { title:\"First Name\", name: \"foreName\", type: \"text\", width: 50 },\n                    { title:\"Last Name\", name: \"sirName\", type: \"text\", width: 50 },\n                    { title:\"Age\", name: \"age\", type:\"number\", width: 25},\n                    { type: \"control\" }\n                ],\n           \n                controller: {\n                    insertItem: function(item) {\n                        return $.ajax({\n                            type: \"POST\",\n                            url: \"/insert\",\n                            data: item\n                        });\n                    },\n                    updateItem: function(item) {\n                       return $.ajax({\n                            type: \"PUT\",\n                            url: \"/update\",\n                            data: item\n                        });\n                    },\n                    deleteItem: function(item) {\n                        return $.ajax({\n                            type: \"DELETE\",\n                            url: \"/delete\",\n                            data: item\n                        });\n                    }\n                }   \n            });\n        });\n    \n  </script>\n</head>\n<body class=\"container\">\n    <section class=\"row\">\n        \n        <div class=\"col-md-6\"></div>\n        <div class=\"col-md-6\" id=\"jsgrid\">\n        </div>\n    </section>\n</body>\n</html>\n\n",
-        "x": 632,
-        "y": 116,
-        "wires": [
-            [
-                "e4bd0337.229be8"
-            ]
-        ]
-    },
-    {
-        "id": "3fa8dafa.229966",
-        "type": "http in",
-        "z": "c714bad49d5eea2f",
+        "z": "c3e94525eaf21c0a",
         "name": "",
         "url": "/index",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 100,
-        "y": 116,
+        "x": 80,
+        "y": 80,
         "wires": [
             [
-                "5a339947.2e2cf8"
+                "98b6cece.37871"
             ]
         ]
     },
     {
-        "id": "e4bd0337.229be8",
+        "id": "98b6cece.37871",
+        "type": "template",
+        "z": "c3e94525eaf21c0a",
+        "name": "web-template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n   <head>\n      <!-- The jQuery library is a prerequisite for all jqSuite products -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/jquery.min.js\"></script> \n      <!-- We support more than 40 localizations -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js\"></script>\n      <!-- This is the Javascript file of jqGrid -->   \n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js\"></script>\n      <!-- This is the localization file of the grid controlling messages, labels, etc.\n      <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://struts.jgeppert.com/struts2-jquery-grid-showcase/themes/showcase/jquery-ui.css\" />\n      <!-- The link to the CSS that the grid needs -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://www.guriddo.net/demo/css/trirand/ui.jqgrid.css\" />\n      <meta charset=\"utf-8\" />\n      <title>Demo CRUD with jqGrid</title>\n      <script type=\"text/javascript\"></script>\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.css\" />\n   </head>\n   <body>\n      <script type=\"text/javascript\" language=\"javascript\" src=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.js?0=0&0=0&0=0\"></script>\n      <table id=\"jqGrid\"></table>\n      <div id=\"jqGridPager\"></div>\n      <script type=\"text/javascript\"> \n         $(document).ready(function () {\n             $(\"#jqGrid\").jqGrid({\n                 url: '/search',\n                 mtype: \"GET\",\n                 datatype: \"json\",\n                 colModel: [\n                     { label: 'ID', name: 'id', key: true, search: false, width: 75 },\n                     { label: 'Name', name: 'name', width: 150, editable: true, formoptions: { colpos: 1, rowpos: 1 }  },\n                     { label: 'Last Name', name: 'lastname', width: 150, editable: true, edittype: \"select\", formoptions: { colpos: 1, rowpos: 2 },\n                       editoptions: {\n                            dataUrl:'/search/lastname',\n                            type:\"GET\",\n                            buildSelect: function(data) {\n                                var response = jQuery.parseJSON(data); //JSON data\n                                var s = '<select>';\n                                if (response && response.length) {\n                                    s += '<option hidden=\"true\">--- Select Lastname ---</option>';\n                                    for (var i = 0, l=response.length; i<l ; i++) {\n                                    var id = response[i].id;\n                                    var val = response[i].value; \n                                    // You can concatenate ID or any other string here\n                                    //For example: var ri = response[i].id + response[i].value; \n                                        s += '<option value=\"'+id+'\">'+val+'</option>';\n                                    }\n                                }\n                                return s + \"</select>\";\n                            } \n                         } \n                     },\n                     { label: 'Code', name: 'code', width: 150, editable: true, formoptions: { colpos: 2, rowpos: 1 } },  \n                     { label: 'Married', name: 'married', width: 150, align: \"center\", search: false, editable: true, edittype: \"checkbox\", formatter: \"checkbox\", editoptions: { value: \"1:0\" }, formoptions: { colpos: 2, rowpos: 2 } }\n                 ],\n                 width: 500,\n                 height: 260,\n                 rowNum: 10,\n                 loadonce: true,\n                 viewrecords: true,\n                 pager: \"#jqGridPager\"\n             });\n             \n             $('#jqGrid').navGrid('#jqGridPager',\n                 // The buttons to appear on the toolbar of the grid\n                 { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: \"left\", cloneToTop: true },\n                 \n                 // Options for the Edit Dialog\n                 {\n                     url: '/update',\n                     editCaption: \"The Edit Dialog\",\n                     recreateForm: true,\n\t\t\t\t\t //checkOnUpdate : true,\n\t\t\t\t\t //checkOnSubmit : true,\n\t\t\t\t\t beforeSubmit : function( postdata, form , oper) {\n\t\t\t\t\t\t if(confirm('Are you sure you want to update this information?') ) {\n\t\t\t\t\t\t\t // Do something\n\t\t\t\t\t\t \t return [true,'/update'];\n\t\t\t\t\t\t } else {\n\t\t\t\t\t\t\treturn [false, 'Update failed!'];\n\t\t\t\t\t\t }\n\t\t\t\t\t },\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterEdit: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Add Dialog\n                 {\n                     url: '/insert',\n                     addCaption: \"Add Dialog\",\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterAdd: true,\n                     recreateForm: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Delete Dialog\n                 {   \n                     url: '/delete',\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n             });\n             $(\"#jqGrid\").jqGrid('filterToolbar', { stringResult: true, searchOnEnter: true });\n         });\n      </script>\n   </body>\n</html>",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "3c1830eb.33b9"
+            ]
+        ]
+    },
+    {
+        "id": "3c1830eb.33b9",
         "type": "http response",
-        "z": "c714bad49d5eea2f",
+        "z": "c3e94525eaf21c0a",
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 842,
-        "y": 116,
+        "x": 1060,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "66d97ed7.39f1c",
-        "type": "http response",
-        "z": "c714bad49d5eea2f",
-        "name": "",
-        "x": 842,
-        "y": 244,
-        "wires": []
-    },
-    {
-        "id": "a60ce791.6f5ae8",
+        "id": "ef285826.0e9738",
         "type": "http in",
-        "z": "c714bad49d5eea2f",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/search",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "e396f56a.dcda38"
+            ]
+        ]
+    },
+    {
+        "id": "e396f56a.dcda38",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "search-query",
+        "func": "//msg.topic=\"SELECT CONCAT('M00','',test.id) AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nmsg.topic=\"SELECT test.id AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "9fe2ed80.2522c"
+            ]
+        ]
+    },
+    {
+        "id": "458b0528.a4d98c",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1060,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d84f16f7.3d9698",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "search-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 725,
+        "y": 140,
+        "wires": [
+            [
+                "2b952c3a.f63884"
+            ]
+        ]
+    },
+    {
+        "id": "2b952c3a.f63884",
+        "type": "json",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "458b0528.a4d98c"
+            ]
+        ]
+    },
+    {
+        "id": "c91568f0.c3f2f8",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
         "name": "",
         "url": "/insert",
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 110,
-        "y": 244,
+        "x": 90,
+        "y": 260,
         "wires": [
             [
-                "9ca4b651.6f2aa8"
+                "81bb8cdf.93e5b"
             ]
         ]
     },
     {
-        "id": "5f79d9fd.25c4f",
-        "type": "http in",
-        "z": "c714bad49d5eea2f",
-        "name": "",
-        "url": "/delete",
-        "method": "delete",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 308,
+        "id": "e4b82091.b8e9a",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "insert-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 715,
+        "y": 260,
         "wires": [
             [
-                "fe020366.04d91"
+                "c224cbcf.e3e718"
             ]
         ]
     },
     {
-        "id": "17b5b5c4.a8a7b2",
+        "id": "81bb8cdf.93e5b",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "insert-query",
+        "func": "msg.topic=\"INSERT INTO test (name,lastname,code,married,timestamp) VALUES ('\" + msg.payload.name + \"','\" + msg.payload.lastname + \"','\" + msg.payload.code + \"','\" + msg.payload.married + \"',CURRENT_TIMESTAMP)\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "50307401.f1297c"
+            ]
+        ]
+    },
+    {
+        "id": "c224cbcf.e3e718",
         "type": "http response",
-        "z": "c714bad49d5eea2f",
+        "z": "c3e94525eaf21c0a",
         "name": "",
-        "x": 842,
-        "y": 308,
+        "x": 1060,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "a2dfdc4a.dc161",
+        "id": "9929a22b.66471",
         "type": "function",
-        "z": "c714bad49d5eea2f",
-        "name": "Generate dummy data",
-        "func": "const firstNames =  [\"Liam\",\"Noah\",\"Oliver\",\"William\",\"Elijah\",\"James\",\"Benjamin\",\"Lucas\",\"Mason\",\"Ethan\",\"Alexander\",\"Henry\",\"Jacob\",\"Michael\",\"Daniel\",\"Logan\",\"Jackson\",\"Sebastian\",\"Jack\",\"Aiden\"];\nconst sirNames = [\"Jones\",\"Taylor\",\"Williams\",\"Brown\",\"White\",\"Harris\",\"Martin\",\"Davies\",\"Wilson\",\"Cooper\",\"Evans\",\"King\",\"Thomas\",\"Baker\",\"Green\",\"Wright\",\"Johnson\",\"Edwards\",\"Clark\",\"Roberts\",\"Robinson\",\"Hall\",\"Lewis\",\"Young\",\"Davis\",\"Turner\",\"Hill\",\"Phillips\",\"Collins\",\"Allen\",\"Moore\",\"Thompson\",\"Carter\",\"James\",\"Knight\",\"Walker\",\"Wood\",\"Hughes\",\"Parker\",\"Ward\",\"Bennett\",\"Cook\",\"Webb\",\"Bailey\",\"Scott\",\"Jackson\",\"Lee\",\"Cox\"];\n         \n         \n\nvar database = [];\n\nfor(let i = 1; i <= 30; i++) {\n    var item = {\"id\":i, \"timestamp\":Date.now()};\n    item.foreName = randomFirstname();\n    item.sirName = randomSirname();\n    item.userID = \"U\" + randomInt(1000, 2999);\n    item.age = randomInt(20, 65);\n    database.push(item);\n}\n\n\nfunction randomFirstname() {\n   return firstNames[randomInt(0, firstNames.length-1)];\n}\n\nfunction randomSirname() {\n    return sirNames[randomInt(0, sirNames.length-1)];\n}\n\nfunction randomInt(min, max) { \n  return Math.floor(Math.random() * (max - min + 1) + min);\n}\n\nflow.set(\"database\", database);\n\nreturn msg;",
+        "z": "c3e94525eaf21c0a",
+        "name": "lastname-query",
+        "func": "msg.topic=\"SELECT id, lastname as value FROM lastname\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 348,
-        "y": 36,
+        "x": 340,
+        "y": 200,
         "wires": [
-            []
+            [
+                "6ce2248e.9c889c"
+            ]
         ]
     },
     {
-        "id": "3b023f12.50205",
-        "type": "inject",
-        "z": "c714bad49d5eea2f",
+        "id": "4bfc0ef6.e8511",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "lastname-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 725,
+        "y": 200,
+        "wires": [
+            [
+                "7b9f8d8b.c6d4e4"
+            ]
+        ]
+    },
+    {
+        "id": "c70c0833.831ab8",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 71,
-        "y": 36,
+        "url": "/search/lastname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 200,
         "wires": [
             [
-                "a2dfdc4a.dc161"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "de0d507c.2e3c6",
-        "type": "function",
-        "z": "c714bad49d5eea2f",
-        "name": "update-query",
-        "func": "\nvar database = flow.get(\"database\") || [];\n\nvar item = database.find(e => e.id == msg.payload.id );\n\nif(msg.payload.foreName == \"\" || msg.payload.sirName == \"\" || msg.payload.userID == \"\") {\n    msg.statusCode = 400;\n    msg.payload = null;\n    return msg;\n}\n\nif(item) {\n    item.foreName = msg.payload.foreName;\n    item.sirName = msg.payload.sirName;\n    item.age = msg.payload.age;\n    item.userID = msg.payload.userID;\n    flow.set(\"database\", database);\n} else {\n    msg.statusCode = 404;//not found\n    msg.payload = null;\n    return msg;\n}\nmsg.payload = item;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 302,
-        "y": 180,
-        "wires": [
-            [
-                "80b7d10e.159df"
+                "9929a22b.66471"
             ]
         ]
     },
     {
-        "id": "9ca4b651.6f2aa8",
-        "type": "function",
-        "z": "c714bad49d5eea2f",
-        "name": "insert-query",
-        "func": "var database = flow.get(\"database\") || [];\nvar nextID = Math.max.apply(Math, database.map(function(o) { return o.id; })) + 1;\nvar item = {\n    id: nextID,\n    timestamp: Date.now(),\n    foreName : msg.payload.foreName,\n    sirName : msg.payload.sirName,\n    age : msg.payload.age,\n    userID : msg.payload.userID,\n}\n\nif(item.foreName == \"\" || item.sirName == \"\" || item.userID == \"\") {\n    msg.statusCode = 400;\n    msg.payload = null;\n    return msg;\n}\n\ndatabase.push(item);\nflow.set(\"database\", database);\n\nmsg.payload = item;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 302,
-        "y": 244,
-        "wires": [
-            [
-                "66d97ed7.39f1c"
-            ]
-        ]
+        "id": "f92b07.fa8e84f8",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1060,
+        "y": 200,
+        "wires": []
     },
     {
-        "id": "fe020366.04d91",
-        "type": "function",
-        "z": "c714bad49d5eea2f",
-        "name": "delete-query",
-        "func": "\nvar database = flow.get(\"database\") || [];\n\ndatabase = database.filter(function( obj ) {\n    return obj.id != msg.payload.id;\n});\n\nflow.set(\"database\", database);\n\nmsg.payload = database;\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 302,
-        "y": 308,
-        "wires": [
-            [
-                "17b5b5c4.a8a7b2"
-            ]
-        ]
-    },
-    {
-        "id": "5a339947.2e2cf8",
-        "type": "function",
-        "z": "c714bad49d5eea2f",
-        "name": "get database",
-        "func": "\nvar database = flow.get(\"database\") || [];\nmsg.payload = database;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 302,
-        "y": 116,
-        "wires": [
-            [
-                "43fff851.e2c7f8"
-            ]
-        ]
-    },
-    {
-        "id": "43fff851.e2c7f8",
+        "id": "7b9f8d8b.c6d4e4",
         "type": "json",
-        "z": "c714bad49d5eea2f",
+        "z": "c3e94525eaf21c0a",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 458,
-        "y": 116,
+        "x": 910,
+        "y": 200,
         "wires": [
             [
-                "a8dde467.e5dcd8"
+                "f92b07.fa8e84f8"
+            ]
+        ]
+    },
+    {
+        "id": "857ff60c.da9078",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/delete",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 380,
+        "wires": [
+            [
+                "5b19502.0bae0b"
+            ]
+        ]
+    },
+    {
+        "id": "9a8b3fa.c0817c",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "delete-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 715,
+        "y": 380,
+        "wires": [
+            [
+                "4520409.a2751c"
+            ]
+        ]
+    },
+    {
+        "id": "5b19502.0bae0b",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "delete-query",
+        "func": "msg.topic=\"DELETE FROM test WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "973e8aa6.834338"
+            ]
+        ]
+    },
+    {
+        "id": "4520409.a2751c",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "x": 1060,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b9aef47c.8f0938",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/update",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "930f03c1.94bd5"
+            ]
+        ]
+    },
+    {
+        "id": "ece93a93.ebc878",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "update-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 725,
+        "y": 320,
+        "wires": [
+            [
+                "e51fe384.1db73"
+            ]
+        ]
+    },
+    {
+        "id": "930f03c1.94bd5",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "update-query",
+        "func": "msg.topic=\"UPDATE test SET name='\" + msg.payload.name + \"', lastname='\" + msg.payload.lastname + \"', code='\" + msg.payload.code + \"', married='\" + msg.payload.married + \"' WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "c1934c38.6647d"
+            ]
+        ]
+    },
+    {
+        "id": "e51fe384.1db73",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "x": 1060,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9fe2ed80.2522c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "d84f16f7.3d9698"
+            ]
+        ]
+    },
+    {
+        "id": "6ce2248e.9c889c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "4bfc0ef6.e8511"
+            ]
+        ]
+    },
+    {
+        "id": "50307401.f1297c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "e4b82091.b8e9a"
+            ]
+        ]
+    },
+    {
+        "id": "c1934c38.6647d",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "ece93a93.ebc878"
+            ]
+        ]
+    },
+    {
+        "id": "973e8aa6.834338",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "9a8b3fa.c0817c"
             ]
         ]
     }
