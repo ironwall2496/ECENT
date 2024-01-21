@@ -1887,21 +1887,11 @@
         "height": 0,
         "columns": [
             {
-                "field": "ID",
-                "title": "ID",
+                "field": "Nombre",
+                "title": "NAME",
                 "width": "",
                 "align": "center",
                 "formatter": "rownum",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "NAME",
-                "title": "Nombre",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
                 "formatterParams": {
                     "target": "_blank"
                 }
@@ -1927,10 +1917,10 @@
                 }
             },
             {
-                "field": "Acceso admin",
+                "field": "Nivel",
                 "title": "ADMINISTRADOR",
                 "width": "",
-                "align": "left",
+                "align": "center",
                 "formatter": "plaintext",
                 "formatterParams": {
                     "target": "_blank"
