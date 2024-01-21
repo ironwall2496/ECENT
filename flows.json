@@ -1898,7 +1898,7 @@
             },
             {
                 "field": "NAME",
-                "title": "NOMBRE",
+                "title": "Nombre",
                 "width": "",
                 "align": "center",
                 "formatter": "plaintext",
@@ -1907,7 +1907,7 @@
                 }
             },
             {
-                "field": "EMAIL",
+                "field": "Correo",
                 "title": "CORREO",
                 "width": "",
                 "align": "center",
@@ -1917,7 +1917,7 @@
                 }
             },
             {
-                "field": "PASSWORD",
+                "field": "Contraseña",
                 "title": "CONTRASEÑA",
                 "width": "",
                 "align": "center",
@@ -1927,7 +1927,7 @@
                 }
             },
             {
-                "field": "LEVEL",
+                "field": "Acceso admin",
                 "title": "ADMINISTRADOR",
                 "width": "",
                 "align": "left",
@@ -1937,11 +1937,13 @@
                 }
             }
         ],
-        "outputs": 0,
-        "cts": false,
+        "outputs": 1,
+        "cts": true,
         "x": 430,
         "y": 120,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "ed02e587befc96c7",
