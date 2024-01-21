@@ -217,16 +217,6 @@
         "className": ""
     },
     {
-        "id": "78c63e88e19d03e7",
-        "type": "ui_spacer",
-        "z": "3a08c4b74583061b",
-        "name": "spacer",
-        "group": "26187e3546b0274a",
-        "order": 3,
-        "width": "1",
-        "height": "1"
-    },
-    {
         "id": "30b0fec615e802a3",
         "type": "ui_group",
         "name": "AGREGAR_DISPOSITIVOS",
@@ -234,6 +224,25 @@
         "order": 2,
         "disp": true,
         "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "52e58177bcac8732",
+        "type": "ui_tab",
+        "name": "ECENT_LOGIN",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fae35d82aba33488",
+        "type": "ui_group",
+        "name": "LOGIN",
+        "tab": "52e58177bcac8732",
+        "order": 1,
+        "disp": true,
+        "width": "6",
         "collapse": false,
         "className": ""
     },
@@ -2290,6 +2299,37 @@
                 "a1c72886b7b7e46b"
             ]
         ]
+    },
+    {
+        "id": "e7b413ad9679c278",
+        "type": "ui_template",
+        "z": "3a08c4b74583061b",
+        "group": "fae35d82aba33488",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 300,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b523b5138187c910",
+        "type": "comment",
+        "z": "3a08c4b74583061b",
+        "name": "PLANTILLA DE LOGIN",
+        "info": "",
+        "x": 260,
+        "y": 660,
+        "wires": []
     },
     {
         "id": "9568c2b2.ae4098",
