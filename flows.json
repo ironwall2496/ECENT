@@ -1846,7 +1846,7 @@
         "payload": "",
         "submit": "ENVIAR",
         "cancel": "CANCELAR",
-        "topic": "payload",
+        "topic": "topic",
         "topicType": "msg",
         "splitLayout": false,
         "className": "",
