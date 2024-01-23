@@ -1802,7 +1802,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "function 1",
-        "func": "var datos_usario = msg.payload;\nreturn datos_usario;\n//return msg;",
+        "func": "var datos_usario = msg;\nreturn datos_usario;\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
