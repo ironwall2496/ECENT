@@ -248,6 +248,14 @@
         "className": ""
     },
     {
+        "id": "d48d08d1.d221d8",
+        "type": "MySQLdatabase",
+        "host": "",
+        "port": "",
+        "db": "",
+        "tz": ""
+    },
+    {
         "id": "75c5f1c6.56241",
         "type": "snmp",
         "z": "cc6838a177c7342d",
@@ -2310,5 +2318,459 @@
         "x": 335,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "d433feb1.6365e",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/index",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "98b6cece.37871"
+            ]
+        ]
+    },
+    {
+        "id": "98b6cece.37871",
+        "type": "template",
+        "z": "c3e94525eaf21c0a",
+        "name": "web-template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n   <head>\n      <!-- The jQuery library is a prerequisite for all jqSuite products -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/jquery.min.js\"></script> \n      <!-- We support more than 40 localizations -->\n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/i18n/grid.locale-en.js\"></script>\n      <!-- This is the Javascript file of jqGrid -->   \n      <script type=\"text/ecmascript\" src=\"http://www.guriddo.net/demo/js/trirand/jquery.jqGrid.min.js\"></script>\n      <!-- This is the localization file of the grid controlling messages, labels, etc.\n      <!-- A link to a jQuery UI ThemeRoller theme, more than 22 built-in and many more custom -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://struts.jgeppert.com/struts2-jquery-grid-showcase/themes/showcase/jquery-ui.css\" />\n      <!-- The link to the CSS that the grid needs -->\n      <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"http://www.guriddo.net/demo/css/trirand/ui.jqgrid.css\" />\n      <meta charset=\"utf-8\" />\n      <title>Demo CRUD with jqGrid</title>\n      <script type=\"text/javascript\"></script>\n      <link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.css\" />\n   </head>\n   <body>\n      <script type=\"text/javascript\" language=\"javascript\" src=\"http://www.guriddo.net/B1D671CF-E532-4481-99AA-19F420D90332/netdefender/hui/ndhui.js?0=0&0=0&0=0\"></script>\n      <table id=\"jqGrid\"></table>\n      <div id=\"jqGridPager\"></div>\n      <script type=\"text/javascript\"> \n         $(document).ready(function () {\n             $(\"#jqGrid\").jqGrid({\n                 url: '/search',\n                 mtype: \"GET\",\n                 datatype: \"json\",\n                 colModel: [\n                     { label: 'ID', name: 'id', key: true, search: false, width: 75 },\n                     { label: 'Name', name: 'name', width: 150, editable: true, formoptions: { colpos: 1, rowpos: 1 }  },\n                     { label: 'Last Name', name: 'lastname', width: 150, editable: true, edittype: \"select\", formoptions: { colpos: 1, rowpos: 2 },\n                       editoptions: {\n                            dataUrl:'/search/lastname',\n                            type:\"GET\",\n                            buildSelect: function(data) {\n                                var response = jQuery.parseJSON(data); //JSON data\n                                var s = '<select>';\n                                if (response && response.length) {\n                                    s += '<option hidden=\"true\">--- Select Lastname ---</option>';\n                                    for (var i = 0, l=response.length; i<l ; i++) {\n                                    var id = response[i].id;\n                                    var val = response[i].value; \n                                    // You can concatenate ID or any other string here\n                                    //For example: var ri = response[i].id + response[i].value; \n                                        s += '<option value=\"'+id+'\">'+val+'</option>';\n                                    }\n                                }\n                                return s + \"</select>\";\n                            } \n                         } \n                     },\n                     { label: 'Code', name: 'code', width: 150, editable: true, formoptions: { colpos: 2, rowpos: 1 } },  \n                     { label: 'Married', name: 'married', width: 150, align: \"center\", search: false, editable: true, edittype: \"checkbox\", formatter: \"checkbox\", editoptions: { value: \"1:0\" }, formoptions: { colpos: 2, rowpos: 2 } }\n                 ],\n                 width: 500,\n                 height: 260,\n                 rowNum: 10,\n                 loadonce: true,\n                 viewrecords: true,\n                 pager: \"#jqGridPager\"\n             });\n             \n             $('#jqGrid').navGrid('#jqGridPager',\n                 // The buttons to appear on the toolbar of the grid\n                 { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: \"left\", cloneToTop: true },\n                 \n                 // Options for the Edit Dialog\n                 {\n                     url: '/update',\n                     editCaption: \"The Edit Dialog\",\n                     recreateForm: true,\n\t\t\t\t\t //checkOnUpdate : true,\n\t\t\t\t\t //checkOnSubmit : true,\n\t\t\t\t\t beforeSubmit : function( postdata, form , oper) {\n\t\t\t\t\t\t if(confirm('Are you sure you want to update this information?') ) {\n\t\t\t\t\t\t\t // Do something\n\t\t\t\t\t\t \t return [true,'/update'];\n\t\t\t\t\t\t } else {\n\t\t\t\t\t\t\treturn [false, 'Update failed!'];\n\t\t\t\t\t\t }\n\t\t\t\t\t },\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterEdit: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Add Dialog\n                 {\n                     url: '/insert',\n                     addCaption: \"Add Dialog\",\n                     afterSubmit: function () {\n                         $(this).jqGrid(\"setGridParam\", {datatype: 'json'});\n                         return [true];\n                     },\n                     closeAfterAdd: true,\n                     recreateForm: true,\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n                 },\n                 // Options for the Delete Dialog\n                 {   \n                     url: '/delete',\n                     errorTextFormat: function (data) {\n                         return 'Error: ' + data.responseText\n                     }\n             });\n             $(\"#jqGrid\").jqGrid('filterToolbar', { stringResult: true, searchOnEnter: true });\n         });\n      </script>\n   </body>\n</html>",
+        "x": 480,
+        "y": 80,
+        "wires": [
+            [
+                "3c1830eb.33b9"
+            ]
+        ]
+    },
+    {
+        "id": "3c1830eb.33b9",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1200,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ef285826.0e9738",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/search",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "e396f56a.dcda38"
+            ]
+        ]
+    },
+    {
+        "id": "e396f56a.dcda38",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "search-query",
+        "func": "//msg.topic=\"SELECT CONCAT('M00','',test.id) AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nmsg.topic=\"SELECT test.id AS id,test.name AS name,lastname.lastname AS lastname,test.code AS code,test.married AS married FROM test INNER JOIN lastname ON lastname.id = test.lastname ORDER BY test.id DESC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "9fe2ed80.2522c"
+            ]
+        ]
+    },
+    {
+        "id": "458b0528.a4d98c",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1200,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d84f16f7.3d9698",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "search-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 865,
+        "y": 140,
+        "wires": [
+            [
+                "2b952c3a.f63884"
+            ]
+        ]
+    },
+    {
+        "id": "2b952c3a.f63884",
+        "type": "json",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1050,
+        "y": 140,
+        "wires": [
+            [
+                "458b0528.a4d98c"
+            ]
+        ]
+    },
+    {
+        "id": "c91568f0.c3f2f8",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/insert",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "81bb8cdf.93e5b"
+            ]
+        ]
+    },
+    {
+        "id": "e4b82091.b8e9a",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "insert-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 855,
+        "y": 260,
+        "wires": [
+            [
+                "c224cbcf.e3e718"
+            ]
+        ]
+    },
+    {
+        "id": "81bb8cdf.93e5b",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "insert-query",
+        "func": "msg.topic=\"INSERT INTO test (name,lastname,code,married,timestamp) VALUES ('\" + msg.payload.name + \"','\" + msg.payload.lastname + \"','\" + msg.payload.code + \"','\" + msg.payload.married + \"',CURRENT_TIMESTAMP)\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "50307401.f1297c"
+            ]
+        ]
+    },
+    {
+        "id": "c224cbcf.e3e718",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "x": 1200,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9929a22b.66471",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "lastname-query",
+        "func": "msg.topic=\"SELECT id, lastname as value FROM lastname\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "6ce2248e.9c889c"
+            ]
+        ]
+    },
+    {
+        "id": "4bfc0ef6.e8511",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "lastname-response",
+        "func": "return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 865,
+        "y": 200,
+        "wires": [
+            [
+                "7b9f8d8b.c6d4e4"
+            ]
+        ]
+    },
+    {
+        "id": "c70c0833.831ab8",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/search/lastname",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "9929a22b.66471"
+            ]
+        ]
+    },
+    {
+        "id": "f92b07.fa8e84f8",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1200,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7b9f8d8b.c6d4e4",
+        "type": "json",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "f92b07.fa8e84f8"
+            ]
+        ]
+    },
+    {
+        "id": "857ff60c.da9078",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/delete",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 380,
+        "wires": [
+            [
+                "5b19502.0bae0b"
+            ]
+        ]
+    },
+    {
+        "id": "9a8b3fa.c0817c",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "delete-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 855,
+        "y": 380,
+        "wires": [
+            [
+                "4520409.a2751c"
+            ]
+        ]
+    },
+    {
+        "id": "5b19502.0bae0b",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "delete-query",
+        "func": "msg.topic=\"DELETE FROM test WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "973e8aa6.834338"
+            ]
+        ]
+    },
+    {
+        "id": "4520409.a2751c",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "x": 1200,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b9aef47c.8f0938",
+        "type": "http in",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "url": "/update",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "930f03c1.94bd5"
+            ]
+        ]
+    },
+    {
+        "id": "ece93a93.ebc878",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "update-response",
+        "func": "msg.payload=msg.result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 865,
+        "y": 320,
+        "wires": [
+            [
+                "e51fe384.1db73"
+            ]
+        ]
+    },
+    {
+        "id": "930f03c1.94bd5",
+        "type": "function",
+        "z": "c3e94525eaf21c0a",
+        "name": "update-query",
+        "func": "msg.topic=\"UPDATE test SET name='\" + msg.payload.name + \"', lastname='\" + msg.payload.lastname + \"', code='\" + msg.payload.code + \"', married='\" + msg.payload.married + \"' WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "c1934c38.6647d"
+            ]
+        ]
+    },
+    {
+        "id": "e51fe384.1db73",
+        "type": "http response",
+        "z": "c3e94525eaf21c0a",
+        "name": "",
+        "x": 1200,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9fe2ed80.2522c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "d84f16f7.3d9698"
+            ]
+        ]
+    },
+    {
+        "id": "6ce2248e.9c889c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "4bfc0ef6.e8511"
+            ]
+        ]
+    },
+    {
+        "id": "50307401.f1297c",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "e4b82091.b8e9a"
+            ]
+        ]
+    },
+    {
+        "id": "c1934c38.6647d",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "ece93a93.ebc878"
+            ]
+        ]
+    },
+    {
+        "id": "973e8aa6.834338",
+        "type": "mysql",
+        "z": "c3e94525eaf21c0a",
+        "mydb": "d48d08d1.d221d8",
+        "name": "database",
+        "x": 670,
+        "y": 380,
+        "wires": [
+            [
+                "9a8b3fa.c0817c"
+            ]
+        ]
     }
 ]
