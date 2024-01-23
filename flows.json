@@ -240,43 +240,6 @@
         "className": ""
     },
     {
-        "id": "d48d08d1.d221d8",
-        "type": "MySQLdatabase",
-        "host": "",
-        "port": "",
-        "db": "",
-        "tz": ""
-    },
-    {
-        "id": "a8eedffbd7ebc5bd",
-        "type": "modbus-client",
-        "name": "pm",
-        "clienttype": "tcp",
-        "bufferCommands": true,
-        "stateLogEnabled": false,
-        "queueLogEnabled": false,
-        "failureLogEnabled": true,
-        "tcpHost": "127.0.0.1",
-        "tcpPort": "502",
-        "tcpType": "DEFAULT",
-        "serialPort": "/dev/ttyUSB",
-        "serialType": "RTU-BUFFERD",
-        "serialBaudrate": "9600",
-        "serialDatabits": "8",
-        "serialStopbits": "1",
-        "serialParity": "none",
-        "serialConnectionDelay": "100",
-        "serialAsciiResponseStartDelimiter": "0x3A",
-        "unit_id": "1",
-        "commandDelay": "1",
-        "clientTimeout": "1000",
-        "reconnectOnTimeout": true,
-        "reconnectTimeout": "2000",
-        "parallelUnitIdsAllowed": true,
-        "showWarnings": true,
-        "showLogs": true
-    },
-    {
         "id": "75c5f1c6.56241",
         "type": "snmp",
         "z": "cc6838a177c7342d",
@@ -1755,7 +1718,7 @@
         "id": "8823ab04a259b959",
         "type": "function",
         "z": "793151554c09c1fc",
-        "name": "CREATE-QUERY",
+        "name": "CREATE_usuarios",
         "func": "msg.topic = \"INSERT INTO USUARIOS (??, ??, ??, ??) VALUES (??, ??, ??, ??)\";\nmsg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\nmsg.payload = [\"test\"];\nreturn msg;\n\nmsg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\", \"Department_name\", \"test\"];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -1883,7 +1846,8 @@
         "y": 120,
         "wires": [
             [
-                "bff1125ecc8557e0"
+                "bff1125ecc8557e0",
+                "41b2e8f18f570413"
             ]
         ]
     },
@@ -2355,6 +2319,17 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "41b2e8f18f570413",
+        "type": "link out",
+        "z": "3a08c4b74583061b",
+        "name": "DATOS_TABLA",
+        "mode": "link",
+        "links": [],
+        "x": 355,
         "y": 80,
         "wires": []
     }
