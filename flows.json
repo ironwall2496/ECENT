@@ -1716,9 +1716,7 @@
         "x": 570,
         "y": 1180,
         "wires": [
-            [
-                "7fc6af220ce43bee"
-            ]
+            []
         ]
     },
     {
@@ -1779,9 +1777,44 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 1180,
+        "x": 1160,
+        "y": 1220,
         "wires": []
+    },
+    {
+        "id": "10c6f08419ab55ec",
+        "type": "link in",
+        "z": "793151554c09c1fc",
+        "name": "link in 1",
+        "links": [
+            "41b2e8f18f570413"
+        ],
+        "x": 875,
+        "y": 1220,
+        "wires": [
+            [
+                "1bdd8a644d112f77"
+            ]
+        ]
+    },
+    {
+        "id": "1bdd8a644d112f77",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "function 1",
+        "func": "var datos_usario = msg.payload;\nreturn datos_usario;\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 1220,
+        "wires": [
+            [
+                "7fc6af220ce43bee"
+            ]
+        ]
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
@@ -2316,7 +2349,9 @@
         "z": "3a08c4b74583061b",
         "name": "DATOS_TABLA",
         "mode": "link",
-        "links": [],
+        "links": [
+            "10c6f08419ab55ec"
+        ],
         "x": 335,
         "y": 120,
         "wires": []
