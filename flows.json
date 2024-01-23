@@ -1864,7 +1864,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 440,
         "y": 120,
         "wires": []
     },
@@ -2307,30 +2307,14 @@
         "wires": []
     },
     {
-        "id": "3f99d999ec35962a",
-        "type": "debug",
-        "z": "3a08c4b74583061b",
-        "name": "debug 8",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "41b2e8f18f570413",
         "type": "link out",
         "z": "3a08c4b74583061b",
         "name": "DATOS_TABLA",
         "mode": "link",
         "links": [],
-        "x": 355,
-        "y": 80,
+        "x": 335,
+        "y": 120,
         "wires": []
     }
 ]
