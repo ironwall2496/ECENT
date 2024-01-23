@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "854b8ec8c22a4780",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8880d363.148ac",
         "type": "ui_group",
         "name": "Usuarios",
@@ -238,6 +246,12 @@
         "width": 28,
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "db58ad1a.e37a8",
+        "type": "ui_tab",
+        "name": "Test stuff",
+        "icon": "dashboard"
     },
     {
         "id": "75c5f1c6.56241",
@@ -1381,9 +1395,7 @@
         "x": 550,
         "y": 1300,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -1400,9 +1412,7 @@
         "x": 540,
         "y": 1340,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -1419,9 +1429,7 @@
         "x": 530,
         "y": 1540,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -1438,9 +1446,7 @@
         "x": 560,
         "y": 1420,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -1477,9 +1483,7 @@
         "x": 550,
         "y": 1460,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -1496,9 +1500,7 @@
         "x": 510,
         "y": 1500,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ],
         "info": "VOLTAJE = V\r\nAMPERIOS = A\r\nTIEMPO = T\r\nPOTENCIA = W\r\nNO APLICA = N/A\r\n"
     },
@@ -1728,9 +1730,7 @@
         "x": 570,
         "y": 1180,
         "wires": [
-            [
-                "b6c8fb60d8443dae"
-            ]
+            []
         ]
     },
     {
@@ -2316,5 +2316,238 @@
         "x": 335,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "d205c5ce.1feca8",
+        "type": "ui_chart",
+        "z": "854b8ec8c22a4780",
+        "name": "24 hours data",
+        "group": "8880d363.148ac",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "label": "Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "24",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#00e68c",
+            "#2d2da8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "05abad8b29064155",
+        "type": "mysql",
+        "z": "854b8ec8c22a4780",
+        "mydb": "a844720c.608d6",
+        "name": "MYSQL",
+        "x": 698,
+        "y": 489,
+        "wires": [
+            [
+                "b9bc07c1e0b8b68d",
+                "5f3047087b39f0b1"
+            ]
+        ]
+    },
+    {
+        "id": "c8a7dccd389d4590",
+        "type": "function",
+        "z": "854b8ec8c22a4780",
+        "name": "Criteria",
+        "func": "var timeE = msg.payload;\n//Restrict the query to pull the last 24hrs\n//of data instead of the whole db\nmsg.payload = (timeE - (1000*60*60*24));\n    node.status({text:msg.payload});\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 515,
+        "y": 490,
+        "wires": [
+            [
+                "bd648fd3a2baef43"
+            ]
+        ]
+    },
+    {
+        "id": "93d13576b379ed6f",
+        "type": "template",
+        "z": "854b8ec8c22a4780",
+        "name": "Format query 2",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT\n CEILING(time/3600000)*3600000 AS timestamp,\n AVG(data1) AS `data1`,\n AVG(data2) AS `data2`\nFROM dbasename\nWHERE time > {{payload}}\nGROUP BY `timestamp`;",
+        "output": "str",
+        "x": 704,
+        "y": 543,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9bc07c1e0b8b68d",
+        "type": "debug",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 901,
+        "y": 489,
+        "wires": []
+    },
+    {
+        "id": "c8861583df7786e3",
+        "type": "inject",
+        "z": "854b8ec8c22a4780",
+        "name": "Timestamp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 515,
+        "y": 440,
+        "wires": [
+            [
+                "c8a7dccd389d4590"
+            ]
+        ]
+    },
+    {
+        "id": "bd1f4b11687292bc",
+        "type": "comment",
+        "z": "854b8ec8c22a4780",
+        "name": "Flow to query database and format for chart",
+        "info": "",
+        "x": 621,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "aa8db96061b814a9",
+        "type": "mysql",
+        "z": "854b8ec8c22a4780",
+        "mydb": "a844720c.608d6",
+        "name": "MYSQL",
+        "x": 674,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "439f5e60bf325748",
+        "type": "template",
+        "z": "854b8ec8c22a4780",
+        "name": "Format data",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "INSERT INTO `dbasename` (`data1`,`data2`,`time`) VALUES ({{data1}},{{data2}},{{time}})",
+        "output": "str",
+        "x": 521,
+        "y": 320,
+        "wires": [
+            [
+                "aa8db96061b814a9"
+            ]
+        ]
+    },
+    {
+        "id": "9dbf23eb29ebfecb",
+        "type": "comment",
+        "z": "854b8ec8c22a4780",
+        "name": "Flow to insert data into the database",
+        "info": "",
+        "x": 590,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "bd648fd3a2baef43",
+        "type": "template",
+        "z": "854b8ec8c22a4780",
+        "name": "Format query 1",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "SELECT data1,data2,time FROM dbasename WHERE time > {{payload}}",
+        "output": "str",
+        "x": 700,
+        "y": 439,
+        "wires": [
+            [
+                "05abad8b29064155"
+            ]
+        ]
+    },
+    {
+        "id": "5f3047087b39f0b1",
+        "type": "change",
+        "z": "854b8ec8c22a4780",
+        "name": "Format data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(\t  $series := [\t    { \"field\": \"data1\", \"label\": \"data1 label\" },\t    { \"field\": \"data2\", \"label\": \"data2 label\" }\t  ];\t  $xaxis := \"timestamp\";\t  [\t    {\t      \"series\": $series.label,\t      \"data\": $series.[\t        (\t          $yaxis := $.field;\t          $$.payload.{\t            \"x\": $lookup($, $xaxis),\t            \"y\": $lookup($, $yaxis)\t          }\t        )\t      ]\t    }\t  ]\t)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 904,
+        "y": 440,
+        "wires": [
+            [
+                "d205c5ce.1feca8"
+            ]
+        ]
     }
 ]
