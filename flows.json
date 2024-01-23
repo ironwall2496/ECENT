@@ -1732,7 +1732,9 @@
         "x": 570,
         "y": 1180,
         "wires": [
-            []
+            [
+                "7fc6af220ce43bee"
+            ]
         ]
     },
     {
@@ -1780,6 +1782,22 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "7fc6af220ce43bee",
+        "type": "debug",
+        "z": "793151554c09c1fc",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1180,
+        "wires": []
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
