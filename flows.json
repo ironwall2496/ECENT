@@ -1820,23 +1820,6 @@
         ]
     },
     {
-        "id": "601fc79814581420",
-        "type": "function",
-        "z": "793151554c09c1fc",
-        "name": "function 2",
-        "func": "{ \"Nombre\": \"GABRIEL\", \"Correo\": \"GABRIEL@H.COM\", \"Contraseña\": \"QW121212\", \"Nivel\": true }\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 7,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1000,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "c2d1f4ccf0c9b1aa",
         "type": "comment",
         "z": "3a08c4b74583061b",
