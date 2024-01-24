@@ -1707,7 +1707,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "CREATE_usuarios",
-        "func": "msg.topic = \"INSERT INTO USUARIOS (??, ??, ??, ??) VALUES (??, ??, ??, ??)\";\nmsg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\nmsg.payload = [\"test\"];\nreturn msg;\n\nmsg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\", \"Department_name\", \"test\"];\nreturn msg;",
+        "func": "//msg.topic = \"INSERT INTO USUARIOS (??, ??, ??, ??) VALUES (??, ??, ??, ??)\";\n//msg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\n//msg.payload = [\"test\"];\n//return msg;\n\n//msg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\", \"Department_name\", \"test\"];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
