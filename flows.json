@@ -1707,7 +1707,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "CREATE_usuarios",
-        "func": "//msg.topic = \"INSERT INTO USUARIOS (??, ??, ??, ??) VALUES (??, ??, ??, ??)\";\n//msg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\n//msg.payload = [\"test\"];\n//return msg;\n\n//msg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\nmsg.payload = [\"Department\", \"Department_name\", \"test\"];\nreturn msg;",
+        "func": "msg.topic = \"INSERT INTO USUARIOS (NAME, EMAIL, PASSWORD, LEVEL) VALUES (??, ??, ??, ??)\";\nmsg.payload = [msg.payload.Nombre, msg.payload.Correo, msg.payload[\"Contraseña\"], msg.payload.Nivel]\n//msg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\n//msg.payload = [\"test\"];\nreturn msg;\n\n//msg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\n//msg.payload = [\"Department\", \"Department_name\", \"test\"];\n//return msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1817,6 +1817,23 @@
             [
                 "7fc6af220ce43bee"
             ]
+        ]
+    },
+    {
+        "id": "601fc79814581420",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "function 2",
+        "func": "{ \"Nombre\": \"GABRIEL\", \"Correo\": \"GABRIEL@H.COM\", \"Contraseña\": \"QW121212\", \"Nivel\": true }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 7,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 1140,
+        "wires": [
+            []
         ]
     },
     {
