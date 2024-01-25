@@ -1836,6 +1836,35 @@
         ]
     },
     {
+        "id": "9dc53273677c80cc",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 1260,
+        "wires": [
+            [
+                "db616c71c06414fc"
+            ]
+        ]
+    },
+    {
         "id": "c2d1f4ccf0c9b1aa",
         "type": "comment",
         "z": "3a08c4b74583061b",
