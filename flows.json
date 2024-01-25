@@ -26,7 +26,7 @@
     {
         "id": "3a08c4b74583061b",
         "type": "tab",
-        "label": "DASHBOARD ",
+        "label": "DASHBOARD_USUARIOS",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "854b8ec8c22a4780",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "DASHBOARD_EQUIPOS",
         "disabled": false,
         "info": "",
         "env": []
@@ -1958,364 +1958,6 @@
         "wires": []
     },
     {
-        "id": "ed02e587befc96c7",
-        "type": "comment",
-        "z": "3a08c4b74583061b",
-        "name": "tabla para gestion de dispositivos",
-        "info": "",
-        "x": 190,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "97317cc0dce5c19a",
-        "type": "ui_form",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "Agregar dispositivos",
-        "group": "edcf9a7bf066cd27",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "options": [
-            {
-                "label": "ID",
-                "value": "DEVICE_ID",
-                "type": "number",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "NAME",
-                "value": "NOMBRE",
-                "type": "email",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "SERIAL",
-                "value": "SERIAL",
-                "type": "password",
-                "required": true,
-                "rows": null
-            },
-            {
-                "label": "ID_USER",
-                "value": "ID USUARIO",
-                "type": "number",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "DEVICE_ID": "",
-            "NOMBRE": "",
-            "SERIAL": "",
-            "ID USUARIO": ""
-        },
-        "payload": "",
-        "submit": "ENVIAR",
-        "cancel": "CANCELAR",
-        "topic": "topic",
-        "topicType": "msg",
-        "splitLayout": false,
-        "className": "",
-        "x": 100,
-        "y": 860,
-        "wires": [
-            [
-                "74bb564475ef001f",
-                "53f5b3b6b2c7d4d8"
-            ]
-        ]
-    },
-    {
-        "id": "74bb564475ef001f",
-        "type": "debug",
-        "z": "3a08c4b74583061b",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "53f5b3b6b2c7d4d8",
-        "type": "ui_table",
-        "z": "3a08c4b74583061b",
-        "group": "edcf9a7bf066cd27",
-        "name": "DISPOSITIVOS",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "columns": [
-            {
-                "field": "ID",
-                "title": "ID",
-                "width": "",
-                "align": "center",
-                "formatter": "rownum",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "NAME",
-                "title": "NOMBRE",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "EMAIL",
-                "title": "CORREO",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "PASSWORD",
-                "title": "CONTRASEÑA",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "LEVEL",
-                "title": "ADMINISTRADOR",
-                "width": "",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            }
-        ],
-        "outputs": 0,
-        "cts": false,
-        "x": 300,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "a1c72886b7b7e46b",
-        "type": "ui_button",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "group": "30b0fec615e802a3",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "ENVIAR",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 940,
-        "y": 800,
-        "wires": [
-            [
-                "13ea76ebbebd3bd1"
-            ]
-        ]
-    },
-    {
-        "id": "7edaca1f92bd7490",
-        "type": "ui_dropdown",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "PROTOCOLO",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "30b0fec615e802a3",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "SNMP",
-                "value": "1",
-                "type": "str"
-            },
-            {
-                "label": "MODBUS TCP",
-                "value": "2",
-                "type": "str"
-            },
-            {
-                "label": "MQTT",
-                "value": "3",
-                "type": "str"
-            },
-            {
-                "label": "DNP3",
-                "value": "4",
-                "type": "str"
-            },
-            {
-                "label": "PROFIBUS",
-                "value": "5",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic.protocol",
-        "topicType": "msg",
-        "className": "",
-        "x": 700,
-        "y": 960,
-        "wires": [
-            [
-                "a1c72886b7b7e46b"
-            ]
-        ]
-    },
-    {
-        "id": "c03efa17c957158e",
-        "type": "ui_text_input",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "DEVICE_ID",
-        "tooltip": "",
-        "group": "8880d363.148ac",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "mode": "number",
-        "delay": 300,
-        "topic": "topic.id",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 690,
-        "y": 800,
-        "wires": [
-            [
-                "a1c72886b7b7e46b"
-            ]
-        ]
-    },
-    {
-        "id": "24d24ad40772d240",
-        "type": "ui_text_input",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "NOMBRE DE DISPOSITIVO",
-        "tooltip": "",
-        "group": "30b0fec615e802a3",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "mode": "text",
-        "delay": 300,
-        "topic": "topic.name",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 740,
-        "y": 840,
-        "wires": [
-            [
-                "a1c72886b7b7e46b"
-            ]
-        ]
-    },
-    {
-        "id": "0e3a082076cd4923",
-        "type": "ui_text_input",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "SERIAL",
-        "tooltip": "",
-        "group": "30b0fec615e802a3",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "mode": "text",
-        "delay": 300,
-        "topic": "topic.serial",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 680,
-        "y": 920,
-        "wires": [
-            [
-                "a1c72886b7b7e46b"
-            ]
-        ]
-    },
-    {
-        "id": "13ea76ebbebd3bd1",
-        "type": "debug",
-        "z": "3a08c4b74583061b",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1100,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "debf9f2c4a7255e7",
-        "type": "ui_text_input",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "label": "NUMERO DE DISPOSITIVO",
-        "tooltip": "",
-        "group": "30b0fec615e802a3",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "mode": "text",
-        "delay": 300,
-        "topic": "topic.device",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "msg",
-        "x": 740,
-        "y": 880,
-        "wires": [
-            [
-                "a1c72886b7b7e46b"
-            ]
-        ]
-    },
-    {
         "id": "e7b413ad9679c278",
         "type": "ui_template",
         "z": "3a08c4b74583061b",
@@ -2330,8 +1972,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "material",
-        "x": 220,
-        "y": 480,
+        "x": 300,
+        "y": 280,
         "wires": [
             []
         ]
@@ -2342,8 +1984,8 @@
         "z": "3a08c4b74583061b",
         "name": "PLANTILLA DE LOGIN",
         "info": "",
-        "x": 160,
-        "y": 440,
+        "x": 240,
+        "y": 240,
         "wires": []
     },
     {
@@ -2393,8 +2035,8 @@
         "z": "3a08c4b74583061b",
         "name": "",
         "info": "",
-        "x": 340,
-        "y": 440,
+        "x": 420,
+        "y": 240,
         "wires": []
     },
     {
@@ -2462,5 +2104,362 @@
         "x": 440,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "ed02e587befc96c7",
+        "type": "comment",
+        "z": "854b8ec8c22a4780",
+        "name": "tabla para gestion de dispositivos",
+        "info": "",
+        "x": 430,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "97317cc0dce5c19a",
+        "type": "ui_form",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "Agregar dispositivos",
+        "group": "edcf9a7bf066cd27",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "ID",
+                "value": "DEVICE_ID",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "NAME",
+                "value": "NOMBRE",
+                "type": "email",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "SERIAL",
+                "value": "SERIAL",
+                "type": "password",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "ID_USER",
+                "value": "ID USUARIO",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "DEVICE_ID": "",
+            "NOMBRE": "",
+            "SERIAL": "",
+            "ID USUARIO": ""
+        },
+        "payload": "",
+        "submit": "ENVIAR",
+        "cancel": "CANCELAR",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "74bb564475ef001f"
+            ]
+        ]
+    },
+    {
+        "id": "74bb564475ef001f",
+        "type": "debug",
+        "z": "854b8ec8c22a4780",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "53f5b3b6b2c7d4d8",
+        "type": "ui_table",
+        "z": "854b8ec8c22a4780",
+        "group": "edcf9a7bf066cd27",
+        "name": "DISPOSITIVOS",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "ID",
+                "title": "ID",
+                "width": "",
+                "align": "center",
+                "formatter": "rownum",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "NAME",
+                "title": "NOMBRE",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "EMAIL",
+                "title": "CORREO",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "PASSWORD",
+                "title": "CONTRASEÑA",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "LEVEL",
+                "title": "ADMINISTRADOR",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 360,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a1c72886b7b7e46b",
+        "type": "ui_button",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "group": "30b0fec615e802a3",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ENVIAR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1140,
+        "y": 120,
+        "wires": [
+            [
+                "13ea76ebbebd3bd1"
+            ]
+        ]
+    },
+    {
+        "id": "7edaca1f92bd7490",
+        "type": "ui_dropdown",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "PROTOCOLO",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "30b0fec615e802a3",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "SNMP",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "MODBUS TCP",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "MQTT",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "DNP3",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "PROFIBUS",
+                "value": "5",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic.protocol",
+        "topicType": "msg",
+        "className": "",
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "a1c72886b7b7e46b"
+            ]
+        ]
+    },
+    {
+        "id": "c03efa17c957158e",
+        "type": "ui_text_input",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "DEVICE_ID",
+        "tooltip": "",
+        "group": "8880d363.148ac",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic.id",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 890,
+        "y": 120,
+        "wires": [
+            [
+                "a1c72886b7b7e46b"
+            ]
+        ]
+    },
+    {
+        "id": "24d24ad40772d240",
+        "type": "ui_text_input",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "NOMBRE DE DISPOSITIVO",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic.name",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 940,
+        "y": 160,
+        "wires": [
+            [
+                "a1c72886b7b7e46b"
+            ]
+        ]
+    },
+    {
+        "id": "0e3a082076cd4923",
+        "type": "ui_text_input",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "SERIAL",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic.serial",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 880,
+        "y": 240,
+        "wires": [
+            [
+                "a1c72886b7b7e46b"
+            ]
+        ]
+    },
+    {
+        "id": "13ea76ebbebd3bd1",
+        "type": "debug",
+        "z": "854b8ec8c22a4780",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "debf9f2c4a7255e7",
+        "type": "ui_text_input",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "NUMERO DE DISPOSITIVO",
+        "tooltip": "",
+        "group": "30b0fec615e802a3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic.device",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 940,
+        "y": 200,
+        "wires": [
+            [
+                "a1c72886b7b7e46b"
+            ]
+        ]
     }
 ]
