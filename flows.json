@@ -1893,27 +1893,9 @@
         "y": 940,
         "wires": [
             [
-                "0cdb90d7e3bc3daa",
                 "e9eb0e576758ac24"
             ]
         ]
-    },
-    {
-        "id": "0cdb90d7e3bc3daa",
-        "type": "debug",
-        "z": "793151554c09c1fc",
-        "name": "debug 10",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1400,
-        "y": 880,
-        "wires": []
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
