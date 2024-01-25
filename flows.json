@@ -1874,8 +1874,8 @@
         "links": [
             "9ecdfa57ae45f938"
         ],
-        "x": 1285,
-        "y": 1020,
+        "x": 1375,
+        "y": 940,
         "wires": []
     },
     {
@@ -1893,7 +1893,8 @@
         "y": 940,
         "wires": [
             [
-                "0cdb90d7e3bc3daa"
+                "0cdb90d7e3bc3daa",
+                "e9eb0e576758ac24"
             ]
         ]
     },
@@ -1910,8 +1911,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1420,
-        "y": 940,
+        "x": 1400,
+        "y": 880,
         "wires": []
     },
     {
