@@ -2347,8 +2347,8 @@
         "group": "f5593a50b71e940e",
         "name": "Tabla de Usuarios",
         "order": 1,
-        "width": "15",
-        "height": "10",
+        "width": 30,
+        "height": 4,
         "columns": [
             {
                 "field": "",
