@@ -2432,7 +2432,7 @@
         "height": "0",
         "columns": [
             {
-                "field": "payload.USER_ID",
+                "field": "msg.payload.USER_ID",
                 "title": "ID",
                 "width": "",
                 "align": "center",
@@ -2442,7 +2442,7 @@
                 }
             },
             {
-                "field": "payload.NAME",
+                "field": "msg.payload.NAME",
                 "title": "Nombre",
                 "width": "",
                 "align": "center",
@@ -2452,7 +2452,7 @@
                 }
             },
             {
-                "field": "payload.EMAIL",
+                "field": "msg.payload.EMAIL",
                 "title": "Email",
                 "width": "",
                 "align": "center",
@@ -2462,7 +2462,7 @@
                 }
             },
             {
-                "field": "payload.LEVEL",
+                "field": "msg.payload.LEVEL",
                 "title": "Nivel de Acceso",
                 "width": "",
                 "align": "center",
