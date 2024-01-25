@@ -246,7 +246,7 @@
         "tab": "32ba53bb61634871",
         "order": 2,
         "disp": false,
-        "width": "6",
+        "width": 9,
         "collapse": false,
         "className": ""
     },
@@ -2347,8 +2347,8 @@
         "group": "f5593a50b71e940e",
         "name": "Tabla de Usuarios",
         "order": 1,
-        "width": 30,
-        "height": 4,
+        "width": 0,
+        "height": 0,
         "columns": [
             {
                 "field": "",
