@@ -2555,23 +2555,20 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "multiple": true,
-        "options": [
-            {
-                "label": "",
-                "value": "",
-                "type": "str"
-            }
-        ],
+        "options": [],
         "payload": "",
-        "topic": "topic",
+        "topic": "options",
         "topicType": "msg",
         "className": "",
         "x": 590,
         "y": 60,
         "wires": [
             []
+        ],
+        "inputLabels": [
+            "msg.options"
         ]
     },
     {
