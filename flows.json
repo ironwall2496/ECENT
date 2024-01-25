@@ -1920,6 +1920,35 @@
         "wires": []
     },
     {
+        "id": "01208f185a1f44ea",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 1280,
+        "wires": [
+            [
+                "db616c71c06414fc"
+            ]
+        ]
+    },
+    {
         "id": "c2d1f4ccf0c9b1aa",
         "type": "comment",
         "z": "3a08c4b74583061b",
