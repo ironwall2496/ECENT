@@ -2430,48 +2430,7 @@
         "order": 1,
         "width": "0",
         "height": "0",
-        "columns": [
-            {
-                "field": "msg.payload.USER_ID",
-                "title": "ID",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload.NAME",
-                "title": "Nombre",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload.EMAIL",
-                "title": "Email",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "msg.payload.LEVEL",
-                "title": "Nivel de Acceso",
-                "width": "",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            }
-        ],
+        "columns": [],
         "outputs": 0,
         "cts": false,
         "x": 330,
