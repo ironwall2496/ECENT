@@ -189,7 +189,7 @@
     {
         "id": "f5593a50b71e940e",
         "type": "ui_group",
-        "name": "credenciales",
+        "name": "TABLE",
         "tab": "32ba53bb61634871",
         "order": 1,
         "disp": false,
@@ -236,6 +236,17 @@
         "order": 1,
         "disp": true,
         "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ae2ca8465afadc66",
+        "type": "ui_group",
+        "name": "FORM",
+        "tab": "32ba53bb61634871",
+        "order": 2,
+        "disp": false,
+        "width": "6",
         "collapse": false,
         "className": ""
     },
@@ -712,8 +723,8 @@
         "z": "cc6838a177c7342d",
         "group": "8880d363.148ac",
         "order": 1,
-        "width": 9,
-        "height": 1,
+        "width": "0",
+        "height": "0",
         "name": "",
         "label": "Descripción del sistema",
         "format": "{{msg.payload[0].value}}",
@@ -1805,8 +1816,8 @@
         "z": "3a08c4b74583061b",
         "name": "datos_usuarios",
         "label": "Crear Usuarios",
-        "group": "f5593a50b71e940e",
-        "order": 2,
+        "group": "ae2ca8465afadc66",
+        "order": 1,
         "width": 0,
         "height": 0,
         "options": [
@@ -2273,7 +2284,7 @@
         "z": "3a08c4b74583061b",
         "name": "",
         "group": "f5593a50b71e940e",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2327,6 +2338,73 @@
         ],
         "x": 335,
         "y": 120,
+        "wires": []
+    },
+    {
+        "id": "10b086019450ccf5",
+        "type": "ui_table",
+        "z": "3a08c4b74583061b",
+        "group": "f5593a50b71e940e",
+        "name": "Tabla de Usuarios",
+        "order": 1,
+        "width": "15",
+        "height": "10",
+        "columns": [
+            {
+                "field": "",
+                "title": "ID",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "",
+                "title": "Nombre",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "",
+                "title": "Email",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "",
+                "title": "Password",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "",
+                "title": "Nivel de Acceso",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 330,
+        "y": 200,
         "wires": []
     }
 ]
