@@ -2558,7 +2558,7 @@
         "multiple": true,
         "options": [],
         "payload": "",
-        "topic": "topic",
+        "topic": "options",
         "topicType": "msg",
         "className": "",
         "x": 590,
