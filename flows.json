@@ -1301,7 +1301,7 @@
         "wires": [
             [
                 "0315f2096d009ec8",
-                "e9eb0e576758ac24"
+                "1fa265f990932f1e"
             ]
         ]
     },
@@ -1874,9 +1874,28 @@
         "links": [
             "9ecdfa57ae45f938"
         ],
-        "x": 1095,
+        "x": 1235,
         "y": 940,
         "wires": []
+    },
+    {
+        "id": "1fa265f990932f1e",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "tratamiendo de datos de tabla",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 940,
+        "wires": [
+            [
+                "e9eb0e576758ac24"
+            ]
+        ]
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
