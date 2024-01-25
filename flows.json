@@ -1301,7 +1301,8 @@
         "wires": [
             [
                 "0315f2096d009ec8",
-                "1fa265f990932f1e"
+                "1fa265f990932f1e",
+                "61cdd914f715162b"
             ]
         ]
     },
@@ -1869,6 +1870,36 @@
         ]
     },
     {
+        "id": "61cdd914f715162b",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "tratamiendo de datos de tabla",
+        "func": "//El siguiente codigo toma los datos de salida de la base de datos y elimina el campo password y vuelve\n// a entregar los mismos datos sin el campo password para que no sea mostrado en la tabla del dashboard\nvar datos=msg.payload;\nconst datos_name = datos.map(objeto => objeto.NAME);\nmsg.payload=datos_name;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 980,
+        "wires": [
+            [
+                "00b38c2524a4e536"
+            ]
+        ]
+    },
+    {
+        "id": "00b38c2524a4e536",
+        "type": "link out",
+        "z": "793151554c09c1fc",
+        "name": "Nombres de usuarios",
+        "mode": "link",
+        "links": [],
+        "x": 1375,
+        "y": 980,
+        "wires": []
+    },
+    {
         "id": "c2d1f4ccf0c9b1aa",
         "type": "comment",
         "z": "3a08c4b74583061b",
@@ -2078,7 +2109,8 @@
         "z": "3a08c4b74583061b",
         "name": "link in 3",
         "links": [
-            "e9eb0e576758ac24"
+            "e9eb0e576758ac24",
+            "ce726480fbfbcd14"
         ],
         "x": 105,
         "y": 200,
@@ -2112,7 +2144,7 @@
         "name": "tabla para gestion de dispositivos",
         "info": "",
         "x": 430,
-        "y": 40,
+        "y": 20,
         "wires": []
     },
     {
@@ -2122,7 +2154,7 @@
         "name": "",
         "label": "Agregar dispositivos",
         "group": "edcf9a7bf066cd27",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "options": [
@@ -2199,7 +2231,7 @@
         "z": "854b8ec8c22a4780",
         "group": "edcf9a7bf066cd27",
         "name": "DISPOSITIVOS",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "columns": [
@@ -2401,7 +2433,7 @@
         "label": "SERIAL",
         "tooltip": "",
         "group": "30b0fec615e802a3",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2444,7 +2476,7 @@
         "label": "NUMERO DE DISPOSITIVO",
         "tooltip": "",
         "group": "30b0fec615e802a3",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2460,6 +2492,37 @@
             [
                 "a1c72886b7b7e46b"
             ]
+        ]
+    },
+    {
+        "id": "f5836af6d9b16272",
+        "type": "ui_dropdown",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "label": "USUARIO",
+        "tooltip": "",
+        "place": "Seleciona un usuario",
+        "group": "fae35d82aba33488",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": true,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 370,
+        "y": 60,
+        "wires": [
+            []
         ]
     }
 ]
