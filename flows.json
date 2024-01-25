@@ -1390,7 +1390,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -1407,7 +1407,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 1340,
+        "y": 1480,
         "wires": [
             []
         ]
@@ -1424,7 +1424,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             []
         ]
@@ -1441,7 +1441,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 1420,
+        "y": 1560,
         "wires": [
             []
         ]
@@ -1453,7 +1453,7 @@
         "name": "CONSULTA DE DATOS BASICOS DEL EQUIPO",
         "info": "",
         "x": 480,
-        "y": 1260,
+        "y": 1400,
         "wires": []
     },
     {
@@ -1463,7 +1463,7 @@
         "name": "CONSULTA DE DATOS ESPECIFICOS POR QUIPOS",
         "info": "",
         "x": 460,
-        "y": 1380,
+        "y": 1520,
         "wires": []
     },
     {
@@ -1478,7 +1478,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 1460,
+        "y": 1600,
         "wires": [
             []
         ]
@@ -1495,7 +1495,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 1500,
+        "y": 1640,
         "wires": [
             []
         ],
@@ -1744,7 +1744,7 @@
         "finalize": "",
         "libs": [],
         "x": 590,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "7fc6af220ce43bee"
@@ -1764,8 +1764,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 1220,
+        "x": 800,
+        "y": 1280,
         "wires": []
     },
     {
@@ -1799,6 +1799,54 @@
         "x": 560,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "db616c71c06414fc",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "update-query",
+        "func": "msg.topic = \"SELECT * FROM USUARIOS\";\nmsg.payload = [msg.payload];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 1220,
+        "wires": [
+            [
+                "b6c8fb60d8443dae"
+            ]
+        ]
+    },
+    {
+        "id": "1cfb243a36bae114",
+        "type": "inject",
+        "z": "793151554c09c1fc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 1220,
+        "wires": [
+            [
+                "db616c71c06414fc"
+            ]
+        ]
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
@@ -1868,7 +1916,8 @@
         "wires": [
             [
                 "bff1125ecc8557e0",
-                "41b2e8f18f570413"
+                "41b2e8f18f570413",
+                "23b26f9b2a061f7f"
             ]
         ]
     },
