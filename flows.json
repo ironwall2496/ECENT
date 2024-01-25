@@ -2422,7 +2422,7 @@
         "columns": [],
         "outputs": 1,
         "cts": true,
-        "x": 330,
+        "x": 230,
         "y": 200,
         "wires": [
             [
@@ -2438,7 +2438,7 @@
         "links": [
             "e9eb0e576758ac24"
         ],
-        "x": 205,
+        "x": 105,
         "y": 200,
         "wires": [
             [
@@ -2459,7 +2459,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 440,
         "y": 200,
         "wires": []
     }
