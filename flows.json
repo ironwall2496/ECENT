@@ -1857,7 +1857,7 @@
         "func": "//El siguiente codigo toma los datos de salida de la base de datos y elimina el campo password y vuelve\n// a entregar los mismos datos sin el campo password para que no sea mostrado en la tabla del dashboard\nvar datos=msg.payload;\nconst datos_sin_pass = datos.map(({ PASSWORD, ...rest }) => rest);\nmsg.payload=datos_sin_pass;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\n//El siguiente codigo toma los datos de salida de la base de datos y elimina el campo password y vuelve\n// a entregar los mismos datos sin el campo password para que no sea mostrado en la tabla del dashboard\nvar datos = msg.payload;\nconst datos_sin_pass = datos.map(({ PASSWORD, ...rest }) => rest);\nmsg.payload = datos_sin_pass;\nreturn msg;\n",
         "finalize": "",
         "libs": [],
         "x": 1210,
