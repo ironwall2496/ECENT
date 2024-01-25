@@ -2420,11 +2420,13 @@
         "width": 16,
         "height": 3,
         "columns": [],
-        "outputs": 0,
-        "cts": false,
+        "outputs": 1,
+        "cts": true,
         "x": 330,
         "y": 200,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "9ecdfa57ae45f938",
