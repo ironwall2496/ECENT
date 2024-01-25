@@ -1894,7 +1894,9 @@
         "z": "793151554c09c1fc",
         "name": "Nombres de usuarios",
         "mode": "link",
-        "links": [],
+        "links": [
+            "c32cc1d9a56b728b"
+        ],
         "x": 1375,
         "y": 980,
         "wires": []
@@ -2519,10 +2521,26 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 370,
+        "x": 590,
         "y": 60,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c32cc1d9a56b728b",
+        "type": "link in",
+        "z": "854b8ec8c22a4780",
+        "name": "Dropdown de usuarios",
+        "links": [
+            "00b38c2524a4e536"
+        ],
+        "x": 485,
+        "y": 60,
+        "wires": [
+            [
+                "f5836af6d9b16272"
+            ]
         ]
     }
 ]
