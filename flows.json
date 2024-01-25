@@ -1874,8 +1874,8 @@
         "z": "3a08c4b74583061b",
         "name": "tabla para gestion de usuarios",
         "info": "",
-        "x": 320,
-        "y": 20,
+        "x": 260,
+        "y": 80,
         "wires": []
     },
     {
