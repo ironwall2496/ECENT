@@ -781,7 +781,7 @@
         "z": "dff60124d5ffe814",
         "name": "",
         "logEnabled": false,
-        "hostname": "0.0.0.0",
+        "hostname": "192.168.1.20",
         "serverPort": 10502,
         "responseDelay": 100,
         "delayUnit": "ms",
