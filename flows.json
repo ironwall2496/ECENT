@@ -2345,7 +2345,7 @@
         "order": 5,
         "width": 0,
         "height": 0,
-        "passthru": false,
+        "passthru": true,
         "label": "ENVIAR",
         "tooltip": "",
         "color": "",
@@ -2356,8 +2356,8 @@
         "payloadType": "str",
         "topic": "payload",
         "topicType": "msg",
-        "x": 240,
-        "y": 80,
+        "x": 180,
+        "y": 160,
         "wires": [
             [
                 "c03efa17c957158e",
