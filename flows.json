@@ -259,50 +259,6 @@
         "className": ""
     },
     {
-        "id": "724108300dff14f7",
-        "type": "ui_group",
-        "name": "Coils",
-        "tab": "7c7dc792728a54c9",
-        "order": 1,
-        "disp": true,
-        "width": "7",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "4fbe468d58408c1d",
-        "type": "ui_group",
-        "name": "Discrete",
-        "tab": "7c7dc792728a54c9",
-        "order": 2,
-        "disp": true,
-        "width": "8",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ae6c0fa65d8064b2",
-        "type": "ui_group",
-        "name": "Input Reg",
-        "tab": "7c7dc792728a54c9",
-        "order": 3,
-        "disp": true,
-        "width": "7",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "9fb083befdf56efe",
-        "type": "ui_group",
-        "name": "Holding Reg",
-        "tab": "7c7dc792728a54c9",
-        "order": 4,
-        "disp": true,
-        "width": "7",
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "7c7dc792728a54c9",
         "type": "ui_tab",
         "name": "Traffic Light",
