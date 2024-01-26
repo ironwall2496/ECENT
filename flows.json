@@ -2361,7 +2361,7 @@
         "topic": "payload",
         "topicType": "msg",
         "x": 240,
-        "y": 120,
+        "y": 80,
         "wires": [
             [
                 "c03efa17c957158e",
@@ -2422,7 +2422,8 @@
         "y": 280,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2448,7 +2449,8 @@
         "y": 120,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2474,7 +2476,8 @@
         "y": 160,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2500,7 +2503,8 @@
         "y": 240,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2543,7 +2547,8 @@
         "y": 200,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2570,7 +2575,8 @@
         "y": 80,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "e39eb367741e97a2",
+                "8fd3fecc3abbf79e"
             ]
         ]
     },
@@ -2582,7 +2588,7 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 285,
+        "x": 85,
         "y": 80,
         "wires": [
             [
@@ -2601,12 +2607,56 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 780,
         "y": 80,
         "wires": [
             [
                 "13ea76ebbebd3bd1"
             ]
         ]
+    },
+    {
+        "id": "8fd3fecc3abbf79e",
+        "type": "change",
+        "z": "854b8ec8c22a4780",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 120,
+        "wires": [
+            [
+                "e645e6cc1a12259c"
+            ]
+        ]
+    },
+    {
+        "id": "e645e6cc1a12259c",
+        "type": "debug",
+        "z": "854b8ec8c22a4780",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 120,
+        "wires": []
     }
 ]
