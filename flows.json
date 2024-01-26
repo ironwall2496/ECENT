@@ -2358,7 +2358,7 @@
         "icon": "",
         "payload": "",
         "payloadType": "str",
-        "topic": "topic",
+        "topic": "payload",
         "topicType": "msg",
         "x": 1140,
         "y": 120,
