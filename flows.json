@@ -806,7 +806,7 @@
         "z": "dff60124d5ffe814",
         "name": "",
         "showStatusActivities": false,
-        "showErrors": false,
+        "showErrors": true,
         "showWarnings": true,
         "logIOActivities": false,
         "server": "ac518f1fa34b61a4",
