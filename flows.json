@@ -164,7 +164,7 @@
         "type": "ui_tab",
         "name": "Gestión de Usuraios",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -173,7 +173,7 @@
         "type": "ui_tab",
         "name": "Gestión de dispositivos",
         "icon": "",
-        "order": 4,
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -182,7 +182,7 @@
         "type": "ui_tab",
         "name": "Dashboard",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -224,7 +224,7 @@
         "type": "ui_tab",
         "name": "ECENT_LOGIN",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
