@@ -982,14 +982,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "0.5",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 120,
         "y": 720,
         "wires": [
             [
