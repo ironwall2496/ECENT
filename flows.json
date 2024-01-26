@@ -2410,7 +2410,7 @@
             }
         ],
         "payload": "",
-        "topic": "payload.protocol",
+        "topic": "protocol",
         "topicType": "msg",
         "className": "",
         "x": 900,
