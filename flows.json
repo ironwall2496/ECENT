@@ -2358,8 +2358,8 @@
         "icon": "",
         "payload": "",
         "payloadType": "str",
-        "topic": "topic",
-        "topicType": "global",
+        "topic": "payload",
+        "topicType": "msg",
         "x": 1140,
         "y": 120,
         "wires": [
