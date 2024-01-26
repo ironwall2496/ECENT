@@ -2248,7 +2248,7 @@
         "topicType": "msg",
         "splitLayout": false,
         "className": "",
-        "x": 400,
+        "x": 420,
         "y": 100,
         "wires": [
             [
@@ -2269,7 +2269,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
+        "x": 620,
         "y": 100,
         "wires": []
     },
@@ -2561,7 +2561,7 @@
         "topic": "options",
         "topicType": "msg",
         "className": "",
-        "x": 490,
+        "x": 450,
         "y": 60,
         "wires": [
             []
@@ -2575,7 +2575,7 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 375,
+        "x": 355,
         "y": 60,
         "wires": [
             [
