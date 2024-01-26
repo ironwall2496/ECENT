@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "946cbe1c0e574074",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "8880d363.148ac",
         "type": "ui_group",
         "name": "Usuarios",
@@ -249,6 +257,87 @@
         "width": "7",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "724108300dff14f7",
+        "type": "ui_group",
+        "name": "Coils",
+        "tab": "7c7dc792728a54c9",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4fbe468d58408c1d",
+        "type": "ui_group",
+        "name": "Discrete",
+        "tab": "7c7dc792728a54c9",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "691972bc0e0ee67d",
+        "type": "modbus-client",
+        "name": "",
+        "clienttype": "simpleser",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB1",
+        "serialType": "RTU",
+        "serialBaudrate": "115200",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "ae6c0fa65d8064b2",
+        "type": "ui_group",
+        "name": "Input Reg",
+        "tab": "7c7dc792728a54c9",
+        "order": 3,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9fb083befdf56efe",
+        "type": "ui_group",
+        "name": "Holding Reg",
+        "tab": "7c7dc792728a54c9",
+        "order": 4,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7c7dc792728a54c9",
+        "type": "ui_tab",
+        "name": "Traffic Light",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "75c5f1c6.56241",
@@ -737,6 +826,1391 @@
         "x": 830,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "aa291e95a995acac",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getCoils()",
+        "func": "if (msg.modbusRequest[\"name\"] !== \"Coils\")\n    return;\nlet names = [\"RELAY_MR\", \"RELAY_0\", \"RELAY_1\", \"RELAY_2\", \"RELAY_3\", \"RELAY_4\", \"RELAY_5\", \"RELAY_6\", \"RELAY_7\",\n    \"DETECTOR_PROTECTION\", \"MB_TIMEOUT_PROTECTION\",\n    \"UNDERVOLTAGE_PROTECTION\", \"OVERVOLTAGE_PROTECTION\",\n    \"UNDERCURRENT_PROTECTION\", \"OVERCURRENT_PROTECTION\", \"OFF_CURRENT_PROTECTION\",\n    \"ALL_ERROR_CLR\", \"FAULT_CLR\", \"SYSTEM_RESET\"]\nfor (var i in names) {\n    // msg.payload.push({ \"address\": i, \"name\": names[i], \"state\": \"true\" });\n    // console.log(names[i]);\n    msg.payload[i] = { \"Address\": i, \"Name\": names[i], \"State\": msg.payload[i] }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "37e3195133f11608",
+                "7774fe4622599af1",
+                "e9496b93e6565740",
+                "1ab6934024e3685a",
+                "9894b76b63c6eeea",
+                "74a4984fe7ff2314",
+                "4f05061b79395a9d",
+                "332a2b8fe959b670",
+                "e8a2f78a77ad608a",
+                "048efcfb637842e4"
+            ]
+        ]
+    },
+    {
+        "id": "37e3195133f11608",
+        "type": "ui_table",
+        "z": "dff60124d5ffe814",
+        "group": "724108300dff14f7",
+        "name": "Coils",
+        "order": 2,
+        "width": "7",
+        "height": "10",
+        "columns": [
+            {
+                "field": "Address",
+                "title": "Address",
+                "width": "25%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Name",
+                "title": "Name",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "State",
+                "title": "State",
+                "width": "20%",
+                "align": "left",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c715a04295690cc8",
+        "type": "ui_table",
+        "z": "dff60124d5ffe814",
+        "group": "4fbe468d58408c1d",
+        "name": "Discrete",
+        "order": 3,
+        "width": "8",
+        "height": "25",
+        "columns": [
+            {
+                "field": "Address",
+                "title": "Address",
+                "width": "22%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Name",
+                "title": "Name",
+                "width": "50%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "State",
+                "title": "State",
+                "width": "20%",
+                "align": "left",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 960,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f85f7afc57d78314",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getDiscrete()",
+        "func": "if (msg.modbusRequest[\"name\"] !== \"Discrete\")\n    return;\nlet names = [\"PWR_OK\",\n    \"DETECTOR_MR\",\n    \"DETECTOR_0\", \"DETECTOR_1\", \"DETECTOR_2\", \"DETECTOR_3\", \"DETECTOR_4\", \"DETECTOR_5\", \"DETECTOR_6\", \"DETECTOR_7\"\n    , \"DETECTOR_MR_ERROR\",\n    \"DETECTOR_0_ERROR\", \"DETECTOR_1_ERROR\", \"DETECTOR_2_ERROR\", \"DETECTOR_3_ERROR\", \"DETECTOR_4_ERROR\", \"DETECTOR_5_ERROR\", \"DETECTOR_6_ERROR\", \"DETECTOR_7_ERROR\"\n    , \"UNDERCURRENT_0\", \"UNDERCURRENT_1\", \"UNDERCURRENT_2\", \"UNDERCURRENT_3\", \"UNDERCURRENT_4\", \"UNDERCURRENT_5\", \"UNDERCURRENT_6\", \"UNDERCURRENT_7\"\n    , \"OVERCURRENT_0\", \"OVERCURRENT_1\", \"OVERCURRENT_2\", \"OVERCURRENT_3\", \"OVERCURRENT_4\", \"OVERCURRENT_5\", \"OVERCURRENT_6\", \"OVERCURRENT_7\"\n    , \"OFF_CURRENT_0\", \"OFF_CURRENT_1\", \"OFF_CURRENT_2\", \"OFF_CURRENT_3\", \"OFF_CURRENT_4\", \"OFF_CURRENT_5\", \"OFF_CURRENT_6\", \"OFF_CURRENT_7\"\n    , \"UNDERVOLTAGE\", \"OVERVOLTAGE\"\n    , \"UNDERCURRENT\", \"OVERCURRENT\", \"OFF_CURRENT\"\n    , \"DETECTOR_ERROR\"\n    , \"MB_TIMEOUT_ERROR\"\n    , \"FAULT\"]\nfor (var i in names) {\n    // msg.payload.push({ \"address\": i, \"name\": names[i], \"state\": \"true\" });\n    // console.log(names[i]);\n    msg.payload[i] = { \"Address\": i, \"Name\": names[i], \"State\": msg.payload[i] }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 780,
+        "wires": [
+            [
+                "c715a04295690cc8"
+            ]
+        ]
+    },
+    {
+        "id": "4eb878fd61bfd9c4",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "3993ef56dbfd237e"
+            ]
+        ]
+    },
+    {
+        "id": "3993ef56dbfd237e",
+        "type": "modbus-flex-sequencer",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "sequences": [
+            {
+                "name": "Coils",
+                "unitid": "1",
+                "fc": "FC1",
+                "address": "10000",
+                "quantity": "19"
+            },
+            {
+                "name": "Discrete",
+                "unitid": "1",
+                "fc": "FC2",
+                "address": "10000",
+                "quantity": "51"
+            },
+            {
+                "name": "Input",
+                "unitid": "1",
+                "fc": "FC4",
+                "address": "10000",
+                "quantity": "12"
+            },
+            {
+                "name": "Holding",
+                "unitid": "1",
+                "fc": "FC3",
+                "address": "10000",
+                "quantity": "36"
+            }
+        ],
+        "server": "691972bc0e0ee67d",
+        "showStatusActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 120,
+        "y": 800,
+        "wires": [
+            [
+                "aa291e95a995acac",
+                "f85f7afc57d78314",
+                "d81046c05ec0c618",
+                "b3c69ec29223a0d7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "25398a26d969db9d",
+        "type": "ui_template",
+        "z": "dff60124d5ffe814",
+        "d": true,
+        "group": "724108300dff14f7",
+        "name": "css",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n.nr-dashboard-theme .nr-dashboard-template path {\n/* fill: !important; */\n/* fill: !important; */\n}</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 370,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d81046c05ec0c618",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getInput()",
+        "func": "if (msg.modbusRequest[\"name\"] !== \"Input\")\n    return;\nlet names = [\"VOLTAGE  \", \"CURRENT_0\", \"CURRENT_1\", \"CURRENT_2\", \"CURRENT_3\", \"CURRENT_4\", \n    \"CURRENT_5\", \"CURRENT_6\", \"CURRENT_7\", \"NOISE_RMS\", \"VCC\", \"MB_TIMER \"]\nfor (var i in names) {\n    // msg.payload.push({ \"address\": i, \"name\": names[i], \"state\": \"true\" });\n    // console.log(names[i]);\n    msg.payload[i] = { \"Address\": i, \"Name\": names[i], \"Value\": msg.payload[i] }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 820,
+        "wires": [
+            [
+                "d02c2f17eb219a3f",
+                "8c766dd909dc6098"
+            ]
+        ]
+    },
+    {
+        "id": "d02c2f17eb219a3f",
+        "type": "ui_table",
+        "z": "dff60124d5ffe814",
+        "group": "ae6c0fa65d8064b2",
+        "name": "Input",
+        "order": 3,
+        "width": "7",
+        "height": "6",
+        "columns": [
+            {
+                "field": "Address",
+                "title": "Address",
+                "width": "25%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Name",
+                "title": "Name",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Value",
+                "title": "Value",
+                "width": "20%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b3c69ec29223a0d7",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getHolding()",
+        "func": "if (msg.modbusRequest[\"name\"] !== \"Holding\")\n    return;\nlet names = [\"LOW_LIMIT_VOLTAGE\", \"HIGH_LIMIT_VOLTAGE\",\n    \"LOW_LIMIT_CURRENT_0\", \"LOW_LIMIT_CURRENT_1\", \"LOW_LIMIT_CURRENT_2\", \"LOW_LIMIT_CURRENT_3\", \"LOW_LIMIT_CURRENT_4\", \"LOW_LIMIT_CURRENT_5\", \"LOW_LIMIT_CURRENT_6\", \"LOW_LIMIT_CURRENT_7\",\n    \"HIGH_LIMIT_CURRENT_0\", \"HIGH_LIMIT_CURRENT_1\", \"HIGH_LIMIT_CURRENT_2\", \"HIGH_LIMIT_CURRENT_3\", \"HIGH_LIMIT_CURRENT_4\", \"HIGH_LIMIT_CURRENT_5\", \"HIGH_LIMIT_CURRENT_6\", \"HIGH_LIMIT_CURRENT_7\",\n    \"OFF_LIMIT_CURRENT_0\", \"OFF_LIMIT_CURRENT_1\", \"OFF_LIMIT_CURRENT_2\", \"OFF_LIMIT_CURRENT_3\", \"OFF_LIMIT_CURRENT_4\", \"OFF_LIMIT_CURRENT_5\", \"OFF_LIMIT_CURRENT_6\", \"OFF_LIMIT_CURRENT_7\",\n    \"DETECTOR_MR_DELAY\", \"DETECTOR_DELAY\", \"DETECTOR_MR_ERROR_DELAY\", \"DETECTOR_ERROR_DELAY\",\n    \"UNDERVOLTAGE_DELAY\", \"OVERVOLTAGE_DELAY\", \"UNDERCURRENT_DELAY\", \"OVERCURRENT_DELAY\", \"OFF_CURRENT_DELAY\", \"MB_TIMER_DELAY\"]\nfor (var i in names) {\n    msg.payload[i] = { \"Address\": i, \"Name\": names[i], \"Value\": msg.payload[i] }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 860,
+        "wires": [
+            [
+                "cdf7a17009fd05e2"
+            ]
+        ]
+    },
+    {
+        "id": "cdf7a17009fd05e2",
+        "type": "ui_table",
+        "z": "dff60124d5ffe814",
+        "group": "9fb083befdf56efe",
+        "name": "Holding",
+        "order": 3,
+        "width": "7",
+        "height": "17",
+        "columns": [
+            {
+                "field": "Address",
+                "title": "Address",
+                "width": "25%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Name",
+                "title": "Name",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Value",
+                "title": "Value",
+                "width": "20%",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 960,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "29a98a622faf8259",
+        "type": "modbus-flex-write",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "server": "691972bc0e0ee67d",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1330,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f1e57e5b10de0843",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeRMRMsg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 200,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "09705717c3cd231a",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "Rmr",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "f1e57e5b10de0843"
+            ]
+        ]
+    },
+    {
+        "id": "998f5a79b98888a5",
+        "type": "ui_form",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "Change Coils",
+        "group": "724108300dff14f7",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Address",
+                "value": "address",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "State",
+                "value": "state",
+                "type": "switch",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "address": "",
+            "state": false
+        },
+        "payload": "",
+        "submit": "Wriite",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": true,
+        "className": "",
+        "x": 780,
+        "y": 20,
+        "wires": [
+            [
+                "7b242a4d88e02be1"
+            ]
+        ]
+    },
+    {
+        "id": "7774fe4622599af1",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelayMRState()",
+        "func": "msg.payload = msg.payload[0][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "09705717c3cd231a"
+            ]
+        ]
+    },
+    {
+        "id": "7b242a4d88e02be1",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeCoilMsg()",
+        "func": "msg.payload = {value: msg.payload[\"state\"], 'fc': 5, 'unitid': 1, 'address': (10000 + msg.payload[\"address\"]), 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 20,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "d5fb9c4f9712ded7",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR0Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10001, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "6e6cf404fd7e589f",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R0",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 260,
+        "wires": [
+            [
+                "d5fb9c4f9712ded7"
+            ]
+        ]
+    },
+    {
+        "id": "e9496b93e6565740",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay0State()",
+        "func": "msg.payload = msg.payload[1][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "6e6cf404fd7e589f"
+            ]
+        ]
+    },
+    {
+        "id": "eab369979f0d9ba6",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR1Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10002, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 320,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "fd683834aa1d85df",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R1",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 9,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "eab369979f0d9ba6"
+            ]
+        ]
+    },
+    {
+        "id": "1ab6934024e3685a",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay1State()",
+        "func": "msg.payload = msg.payload[2][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "fd683834aa1d85df"
+            ]
+        ]
+    },
+    {
+        "id": "ae6dd89a211f60f9",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR2Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10003, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 380,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "766ee42ae9a30da6",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R2",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 11,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "ae6dd89a211f60f9"
+            ]
+        ]
+    },
+    {
+        "id": "9894b76b63c6eeea",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay2State()",
+        "func": "msg.payload = msg.payload[3][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 380,
+        "wires": [
+            [
+                "766ee42ae9a30da6"
+            ]
+        ]
+    },
+    {
+        "id": "5d079afa016a49d7",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR3Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10004, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 440,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "6fe13d698141508f",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R3",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 13,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "5d079afa016a49d7"
+            ]
+        ]
+    },
+    {
+        "id": "74a4984fe7ff2314",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay3State()",
+        "func": "msg.payload = msg.payload[4][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "6fe13d698141508f"
+            ]
+        ]
+    },
+    {
+        "id": "36c82c5b61a5ac7d",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR4Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10005, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 500,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "2d2207b812cb0963",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R4",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 500,
+        "wires": [
+            [
+                "36c82c5b61a5ac7d"
+            ]
+        ]
+    },
+    {
+        "id": "4f05061b79395a9d",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay4State()",
+        "func": "msg.payload = msg.payload[5][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "2d2207b812cb0963"
+            ]
+        ]
+    },
+    {
+        "id": "1a382a50c7f709ca",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR5Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10006, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 560,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "21d30aa028702fed",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R5",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 10,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 560,
+        "wires": [
+            [
+                "1a382a50c7f709ca"
+            ]
+        ]
+    },
+    {
+        "id": "332a2b8fe959b670",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay5State()",
+        "func": "msg.payload = msg.payload[6][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 560,
+        "wires": [
+            [
+                "21d30aa028702fed"
+            ]
+        ]
+    },
+    {
+        "id": "ab038a88243fb870",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR6Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10007, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 620,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "4367bf59e8a2776c",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R6",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 12,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 620,
+        "wires": [
+            [
+                "ab038a88243fb870"
+            ]
+        ]
+    },
+    {
+        "id": "e8a2f78a77ad608a",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay6State()",
+        "func": "msg.payload = msg.payload[7][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 620,
+        "wires": [
+            [
+                "4367bf59e8a2776c"
+            ]
+        ]
+    },
+    {
+        "id": "6a14d666aed657f9",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeR7Msg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: msg.payload, 'fc': 5, 'unitid': 1, 'address': 10008, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 680,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "56c028f669c97e9d",
+        "type": "ui_switch",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "R7",
+        "tooltip": "Enable MR Relay",
+        "group": "724108300dff14f7",
+        "order": 14,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 790,
+        "y": 680,
+        "wires": [
+            [
+                "6a14d666aed657f9"
+            ]
+        ]
+    },
+    {
+        "id": "048efcfb637842e4",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "getRelay7State()",
+        "func": "msg.payload = msg.payload[8][\"State\"];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 680,
+        "wires": [
+            [
+                "56c028f669c97e9d"
+            ]
+        ]
+    },
+    {
+        "id": "460d0e83b03cb0a2",
+        "type": "ui_button",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "group": "724108300dff14f7",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "SYS_RST",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 810,
+        "y": 140,
+        "wires": [
+            [
+                "673e742606d59d07"
+            ]
+        ]
+    },
+    {
+        "id": "673e742606d59d07",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeMsg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: true, 'fc': 5, 'unitid': 1, 'address': 10018, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 140,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "1ed823990cf313b2",
+        "type": "ui_form",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "label": "Change Holding",
+        "group": "9fb083befdf56efe",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Address",
+                "value": "address",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Value",
+                "value": "value",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "address": "",
+            "value": ""
+        },
+        "payload": "",
+        "submit": "Wriite",
+        "cancel": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": true,
+        "className": "",
+        "x": 800,
+        "y": 920,
+        "wires": [
+            [
+                "7430d8fdd4332ba3"
+            ]
+        ]
+    },
+    {
+        "id": "7430d8fdd4332ba3",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeCoilMsg()",
+        "func": "msg.payload = {value: msg.payload[\"value\"], 'fc': 6, 'unitid': 1, 'address': (10000 + msg.payload[\"address\"]), 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 920,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "b2503ec2f66c1daa",
+        "type": "ui_gauge",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "group": "724108300dff14f7",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Voltage",
+        "label": "V",
+        "format": "{{value | number:0}}",
+        "min": 0,
+        "max": "250",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "15",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "8c766dd909dc6098",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload[0][\"Value\"]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1020,
+        "wires": [
+            [
+                "b2503ec2f66c1daa",
+                "4fac6d3be28817eb"
+            ]
+        ]
+    },
+    {
+        "id": "4fac6d3be28817eb",
+        "type": "debug",
+        "z": "dff60124d5ffe814",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "db502b6609ea06ca",
+        "type": "ui_button",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "group": "724108300dff14f7",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "FLT_CLR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 800,
+        "y": 100,
+        "wires": [
+            [
+                "3c864ad4d932b200"
+            ]
+        ]
+    },
+    {
+        "id": "3c864ad4d932b200",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeMsg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: true, 'fc': 5, 'unitid': 1, 'address': 10017, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 100,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
+    },
+    {
+        "id": "f93a519847077660",
+        "type": "ui_button",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "group": "724108300dff14f7",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "ERR_CLR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 810,
+        "y": 60,
+        "wires": [
+            [
+                "9eaeaef8a5cdedc3"
+            ]
+        ]
+    },
+    {
+        "id": "9eaeaef8a5cdedc3",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "writeMsg()",
+        "func": "// value: true, 'fc': 5, 'unitid': 1, 'address': 10000, 'quantity': 1\nmsg.payload = { value: true, 'fc': 5, 'unitid': 1, 'address': 10016, 'quantity': 1 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 60,
+        "wires": [
+            [
+                "29a98a622faf8259"
+            ]
+        ]
     },
     {
         "id": "2a63c806.ae4db8",
