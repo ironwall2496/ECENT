@@ -2359,7 +2359,7 @@
         "payload": "",
         "payloadType": "str",
         "topic": "topic",
-        "topicType": "msg",
+        "topicType": "global",
         "x": 1140,
         "y": 120,
         "wires": [
