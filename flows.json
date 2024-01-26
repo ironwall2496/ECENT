@@ -2469,7 +2469,7 @@
         "mode": "text",
         "delay": 300,
         "topic": "payload.name",
-        "sendOnBlur": true,
+        "sendOnBlur": false,
         "className": "",
         "topicType": "msg",
         "x": 500,
