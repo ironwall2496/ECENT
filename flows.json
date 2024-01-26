@@ -1002,36 +1002,7 @@
         "type": "modbus-flex-sequencer",
         "z": "dff60124d5ffe814",
         "name": "",
-        "sequences": [
-            {
-                "name": "Coils",
-                "unitid": "1",
-                "fc": "FC1",
-                "address": "10000",
-                "quantity": "19"
-            },
-            {
-                "name": "Discrete",
-                "unitid": "1",
-                "fc": "FC2",
-                "address": "10000",
-                "quantity": "51"
-            },
-            {
-                "name": "Input",
-                "unitid": "1",
-                "fc": "FC4",
-                "address": "10000",
-                "quantity": "12"
-            },
-            {
-                "name": "Holding",
-                "unitid": "1",
-                "fc": "FC3",
-                "address": "10000",
-                "quantity": "36"
-            }
-        ],
+        "sequences": [],
         "server": "691972bc0e0ee67d",
         "showStatusActivities": false,
         "showErrors": true,
