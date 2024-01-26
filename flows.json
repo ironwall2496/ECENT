@@ -259,6 +259,35 @@
         "hidden": false
     },
     {
+        "id": "ac518f1fa34b61a4",
+        "type": "modbus-client",
+        "name": "local Mosbus Server",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "10502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
         "id": "75c5f1c6.56241",
         "type": "snmp",
         "z": "cc6838a177c7342d",
@@ -744,6 +773,687 @@
         "color": "#000000",
         "x": 830,
         "y": 100,
+        "wires": []
+    },
+    {
+        "id": "062c1f7b868e78d4",
+        "type": "modbus-server",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "logEnabled": false,
+        "hostname": "0.0.0.0",
+        "serverPort": 10502,
+        "responseDelay": 100,
+        "delayUnit": "ms",
+        "coilsBufferSize": 10000,
+        "holdingBufferSize": 10000,
+        "inputBufferSize": 10000,
+        "discreteBufferSize": 10000,
+        "showErrors": false,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "91c050744dbb430b",
+        "type": "modbus-flex-getter",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "ac518f1fa34b61a4",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 810,
+        "y": 460,
+        "wires": [
+            [],
+            [
+                "2e5401504135f8b0"
+            ]
+        ]
+    },
+    {
+        "id": "a7bbe2a4a9d975be",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Signed",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 1,\n}\nmsg.setting ={\n    'tagname': 'tagint16be',\n    'datatype':'int16be',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "1dd9fce7eaaae472",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "a7bbe2a4a9d975be"
+            ]
+        ]
+    },
+    {
+        "id": "2e5401504135f8b0",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "mapping datatype",
+        "func": "let data = msg.payload.buffer\nlet byteSwap\nlet offset \nlet offsetbit = msg.setting.offsetbit\nlet datatype = msg.setting.datatype\nlet tagname = msg.setting.tagname\n\nif (datatype == 'bool') {\n    byteSwap = false\n}\nif (datatype == 'int16be') {\n    byteSwap = false\n}\nif (datatype == 'uint16be') {\n    byteSwap = false\n}\nif (datatype == 'int32be' || datatype == 'floatbe'){\n    byteSwap = [\"swap32\", \"swap16\"]\n}\nif (datatype == 'int32le' || datatype == 'floatle') {\n    byteSwap = [\"swap32\"]\n}\nif (datatype == 'doublele') {\n    byteSwap = [\"swap32\", \"swap32\",\"swap16\"]\n}\nif (datatype == 'doublebe') {\n    byteSwap = [\"swap32\", \"swap32\"]\n}\n\nif (offsetbit >= 0 && offsetbit <= 7) {\n    offset = 1\n    msg.spec = {\n        \"options\": {\n            \"byteSwap\": byteSwap,\n            \"resultType\": \"keyvalue\",\n            \"singleResult\": true,\n        },\n        \"items\": [{\n            \"name\": tagname,\n            \"type\": datatype,\n            \"offset\": offset,\n            \"offsetbit\": offsetbit,\n            \"length\": 1,\n            \"mask\": ''\n        }]\n    }\n}\nif (offsetbit >= 8 && offsetbit <= 15) {\n    offset = 0\n    msg.spec = {\n        \"options\": {\n            \"byteSwap\": byteSwap,\n            \"resultType\": \"keyvalue\",\n            \"singleResult\": true,\n        },\n        \"items\": [{\n            \"name\": tagname,\n            \"type\": datatype,\n            \"offset\": offset,\n            \"offsetbit\": offsetbit-8,\n            \"length\": 1,\n            \"mask\": ''\n        }]\n    }\n}\nif (offsetbit < 0) {\n    offset = 0\n    msg.spec = {\n        \"options\": {\n            \"byteSwap\": byteSwap,\n            \"resultType\": \"keyvalue\",\n            \"singleResult\": true,\n        },\n        \"items\": [{\n            \"name\": tagname,\n            \"type\": datatype,\n            \"offset\": offset,\n            \"length\": 1,\n            \"mask\": ''\n        }]\n    }\n}\n\nmsg.payload = data\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 460,
+        "wires": [
+            [
+                "49b196f2ae56511d"
+            ]
+        ]
+    },
+    {
+        "id": "49b196f2ae56511d",
+        "type": "buffer-parser",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "msg",
+        "items": [
+            {
+                "type": "int16be",
+                "name": "item1",
+                "offset": 0,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "int16be",
+                "name": "item2",
+                "offset": 2,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "keyvalue",
+        "resultTypeType": "return",
+        "multipleResult": false,
+        "fanOutMultipleResult": false,
+        "setTopic": true,
+        "outputs": 1,
+        "x": 1010,
+        "y": 500,
+        "wires": [
+            [
+                "6e2515a57afe2fc8"
+            ]
+        ]
+    },
+    {
+        "id": "0cbe656f2c66d527",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Unsigned",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 1,\n}\nmsg.setting ={\n    'tagname': 'taguint16be',\n    'datatype':'uint16be',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "265aa0fc361333ed",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "0cbe656f2c66d527"
+            ]
+        ]
+    },
+    {
+        "id": "6ccace800a243335",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Long",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 2,\n}\nmsg.setting ={\n    'tagname': 'tagint32be',\n    'datatype': 'int32be',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 420,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "40c3e6c65afff4a5",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "6ccace800a243335"
+            ]
+        ]
+    },
+    {
+        "id": "9972cdd20aecca42",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Long Inverse",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 2,\n}\nmsg.setting ={\n    'tagname': 'tagint32le',\n    'datatype': 'int32le',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "5742fc12a4e31078",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "9972cdd20aecca42"
+            ]
+        ]
+    },
+    {
+        "id": "e62292707a192eb6",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Float",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 2,\n}\nmsg.setting ={\n    'tagname': 'tagfloatbe',\n    'datatype': 'floatbe',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "e436912292d5e1e0",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "e62292707a192eb6"
+            ]
+        ]
+    },
+    {
+        "id": "ed7d118492b8462e",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Float Inverse",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 2,\n}\nmsg.setting ={\n    'tagname': 'tagfloatle',\n    'datatype': 'floatle',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "72cfb554f5da8290",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "ed7d118492b8462e"
+            ]
+        ]
+    },
+    {
+        "id": "e9b251706c994cdb",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Double",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 4,\n}\nmsg.setting ={\n    'tagname': 'tagdoublele',\n    'datatype': 'doublele',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 580,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "22179182273c28de",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "e9b251706c994cdb"
+            ]
+        ]
+    },
+    {
+        "id": "51d03af7de4602d9",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "Double Inverse",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 4,\n}\nmsg.setting ={\n    'tagname': 'tagdoublebe',\n    'datatype': 'doublebe',\n    'offsetbit': -1,\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "d8a9e398bbbc6c7f",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "51d03af7de4602d9"
+            ]
+        ]
+    },
+    {
+        "id": "8daf23190aa76b3a",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 700,
+        "wires": [
+            [
+                "8436a1bbadda0a76"
+            ]
+        ]
+    },
+    {
+        "id": "94d509bb99f13f9c",
+        "type": "csv to json ext",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "version": "0.1",
+        "source": "payload",
+        "delimiter": ",",
+        "quote": "\"",
+        "escape": "\"",
+        "ignoreEmpty": false,
+        "checkType": true,
+        "trim": false,
+        "noheader": false,
+        "includeColumns": "",
+        "headers": "",
+        "debug": false,
+        "x": 530,
+        "y": 700,
+        "wires": [
+            [
+                "f851d1f0b6ac132a"
+            ]
+        ]
+    },
+    {
+        "id": "8436a1bbadda0a76",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "csv list modbus address",
+        "func": "msg.payload = `fc,unitid,address,tagname,datatype,offsetbit\n3,1,0,tagname 00,int,-1\n3,1,1,tagname 01,uint,-1\n3,1,2,tagname 02,long,-1\n3,1,4,tagname 03,longinv,-1\n3,1,6,tagname 04,float,-1\n3,1,8,tagname 05,floatinv,-1\n3,1,10,tagname 06,double,-1\n3,1,14,tagname 07,doubleinv,-1\n3,1,18,tagname 08,binary,0\n3,1,18,tagname 09,binary,8\n`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "94d509bb99f13f9c"
+            ]
+        ]
+    },
+    {
+        "id": "f851d1f0b6ac132a",
+        "type": "split",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 290,
+        "y": 740,
+        "wires": [
+            [
+                "f456022a027243f7"
+            ]
+        ]
+    },
+    {
+        "id": "f456022a027243f7",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "mapping read modbus address",
+        "func": "let datatype = msg.payload.datatype\nlet fc = msg.payload.fc\nlet unitid = msg.payload.unitid\nlet address = msg.payload.address\nlet tagname = msg.payload.tagname\nlet offsetbit = msg.payload.offsetbit\nlet quantity = 1\n\nif (datatype == 'binary') {\n    datatype = \"bool\"\n    quantity = 1\n}\nif (datatype == 'int') {\n    datatype = \"int16be\"\n    quantity = 1\n}\nif (datatype == 'uint') {\n    datatype = \"uint16be\"\n    quantity = 1\n}\nif (datatype == 'long') {\n    datatype = \"int32be\"\n    quantity = 2\n}\nif (datatype == 'longinv') {\n    datatype = \"int32le\"\n    quantity = 2\n}\nif (datatype == 'float') {\n    datatype = \"floatbe\"\n    quantity = 2\n}\nif (datatype == 'floatinv') {\n    datatype = \"floatle\"\n    quantity = 2\n}\nif (datatype == 'double') {\n    datatype = \"doublele\"\n    quantity = 4\n}\nif (datatype == 'doubleinv') {\n    datatype = \"doublebe\"\n    quantity = 4\n}\n\nmsg.payload = {\n    'fc': fc,\n    'unitid': unitid,\n    'address': address,\n    'quantity': quantity,\n}\nmsg.setting ={\n    'tagname': tagname,\n    'datatype': datatype,\n    'offsetbit': offsetbit\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 740,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "078f273bb77a6a2e",
+        "type": "inject",
+        "z": "dff60124d5ffe814",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "4155144df14905a3"
+            ]
+        ]
+    },
+    {
+        "id": "4155144df14905a3",
+        "type": "function",
+        "z": "dff60124d5ffe814",
+        "name": "binary",
+        "func": "msg.payload = {\n    'fc': 3,\n    'unitid': 1,\n    'address': 0,\n    'quantity': 1,\n}\nmsg.setting ={\n    'tagname': 'tagint16be',\n    'datatype':'bool',\n    'offsetbit': 1\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "91c050744dbb430b"
+            ]
+        ]
+    },
+    {
+        "id": "6e2515a57afe2fc8",
+        "type": "debug",
+        "z": "dff60124d5ffe814",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 500,
         "wires": []
     },
     {
