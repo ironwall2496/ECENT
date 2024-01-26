@@ -1874,7 +1874,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "tratamiendo de datos de tabla",
-        "func": "//El siguiente codigo toma los datos de salida de la base de datos y elimina el campo password y vuelve\n// a entregar los mismos datos sin el campo password para que no sea mostrado en la tabla del dashboard\nvar datos=msg.payload;\n// const datos_name = datos.map(objeto => objeto.NAME);\n//msg.options=datos_name;\nconst datosLavelValue = datos.map(({ USER_ID, NAME }) => ({ NAME:USER_ID}));\nmsg.options=datosLavelValue;\nreturn msg;\n",
+        "func": "//El siguiente codigo toma los datos de salida de la base de datos y elimina el campo password y vuelve\n// a entregar los mismos datos sin el campo password para que no sea mostrado en la tabla del dashboard\nvar datos=msg.payload;\n// const datos_name = datos.map(objeto => objeto.NAME);\n//msg.options=datos_name;\n//const datosLavelValue = datos.map(({ USER_ID, NAME }) => ({ NAME:USER_ID}));\n//msg.options=datosLavelValue;\nconst objetoResultado = {};\n\ndatos.forEach(usuario => {\n    objetoResultado[usuario.NAME] = usuario.USER_ID;\n});\nmsg.options=objetoResultado;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
