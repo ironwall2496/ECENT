@@ -1911,7 +1911,7 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "options",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
