@@ -2246,7 +2246,7 @@
         "cancel": "CANCELAR",
         "topic": "topic",
         "topicType": "msg",
-        "splitLayout": false,
+        "splitLayout": true,
         "className": "",
         "x": 420,
         "y": 100,
