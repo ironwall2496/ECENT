@@ -2543,7 +2543,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "multiple": true,
         "options": [],
         "payload": "",
