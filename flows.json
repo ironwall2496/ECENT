@@ -2187,8 +2187,8 @@
         "z": "854b8ec8c22a4780",
         "name": "tabla para gestion de dispositivos",
         "info": "",
-        "x": 430,
-        "y": 20,
+        "x": 450,
+        "y": 60,
         "wires": []
     },
     {
@@ -2356,8 +2356,8 @@
         "payloadType": "str",
         "topic": "payload",
         "topicType": "msg",
-        "x": 180,
-        "y": 160,
+        "x": 200,
+        "y": 200,
         "wires": [
             [
                 "c03efa17c957158e",
@@ -2414,8 +2414,8 @@
         "topic": "payload.protocol",
         "topicType": "msg",
         "className": "",
-        "x": 460,
-        "y": 280,
+        "x": 480,
+        "y": 320,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2441,8 +2441,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 450,
-        "y": 120,
+        "x": 470,
+        "y": 160,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2468,8 +2468,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 500,
-        "y": 160,
+        "x": 520,
+        "y": 200,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2495,8 +2495,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 440,
-        "y": 240,
+        "x": 460,
+        "y": 280,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2522,8 +2522,8 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 500,
-        "y": 200,
+        "x": 520,
+        "y": 240,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2550,8 +2550,8 @@
         "topic": "options",
         "topicType": "msg",
         "className": "",
-        "x": 450,
-        "y": 80,
+        "x": 470,
+        "y": 120,
         "wires": [
             [
                 "e39eb367741e97a2",
@@ -2567,8 +2567,8 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 265,
-        "y": 80,
+        "x": 285,
+        "y": 120,
         "wires": [
             [
                 "f5836af6d9b16272"
@@ -2586,8 +2586,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 80,
+        "x": 800,
+        "y": 120,
         "wires": [
             []
         ]
@@ -2605,8 +2605,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 120,
+        "x": 800,
+        "y": 160,
         "wires": []
     },
     {
@@ -2622,8 +2622,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 160,
+        "x": 800,
+        "y": 200,
         "wires": []
     },
     {
@@ -2639,8 +2639,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 200,
+        "x": 800,
+        "y": 240,
         "wires": []
     },
     {
@@ -2656,8 +2656,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 240,
+        "x": 800,
+        "y": 280,
         "wires": []
     },
     {
@@ -2673,8 +2673,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 280,
+        "x": 800,
+        "y": 320,
         "wires": []
     },
     {
@@ -2690,8 +2690,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 320,
+        "x": 800,
+        "y": 360,
         "wires": []
     }
 ]
