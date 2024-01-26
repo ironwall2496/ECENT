@@ -2349,7 +2349,7 @@
         "order": 5,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "label": "ENVIAR",
         "tooltip": "",
         "color": "",
