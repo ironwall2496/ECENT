@@ -2561,7 +2561,7 @@
         "topic": "options",
         "topicType": "msg",
         "className": "",
-        "x": 590,
+        "x": 490,
         "y": 60,
         "wires": [
             []
@@ -2575,7 +2575,7 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 485,
+        "x": 375,
         "y": 60,
         "wires": [
             [
