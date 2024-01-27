@@ -2445,15 +2445,15 @@
         "id": "3b72ce3cbff40b8a",
         "type": "function",
         "z": "793151554c09c1fc",
-        "name": "update-query",
-        "func": "msg.topic=\"UPDATE test SET name='\" + msg.payload.name + \"', lastname='\" + msg.payload.lastname + \"', code='\" + msg.payload.code + \"', married='\" + msg.payload.married + \"' WHERE id='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "name": "UPDATE_usuarios",
+        "func": "msg.topic=\"UPDATE USUARIOS SET NAME='\" + msg.payload.name + \"', EMAIL='\" + msg.payload.email + \"', PASSWORD='\" + msg.payload.password + \"', LEVEL='\" + msg.payload.level + \"' WHERE USER_ID='\" + msg.payload.id + \"'\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 1280,
+        "x": 570,
+        "y": 1260,
         "wires": [
             [
                 "7fc6af220ce43bee"
@@ -2473,8 +2473,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 1280,
+        "x": 920,
+        "y": 1260,
         "wires": []
     },
     {
@@ -2513,14 +2513,14 @@
         "id": "db616c71c06414fc",
         "type": "function",
         "z": "793151554c09c1fc",
-        "name": "update-query",
+        "name": "SELECT_usuarios",
         "func": "msg.topic = \"SELECT * FROM USUARIOS\";\nmsg.payload = [msg.payload];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 570,
         "y": 1220,
         "wires": [
             [
@@ -2643,8 +2643,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 290,
-        "y": 1280,
+        "x": 270,
+        "y": 1220,
         "wires": [
             [
                 "db616c71c06414fc"
