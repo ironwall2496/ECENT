@@ -2940,20 +2940,12 @@
                 "type": "number",
                 "required": true,
                 "rows": null
-            },
-            {
-                "label": "ID_USER",
-                "value": "ID USUARIO",
-                "type": "number",
-                "required": true,
-                "rows": null
             }
         ],
         "formValue": {
             "DEVICE_ID": "",
             "NOMBRE": "",
-            "SERIAL": "",
-            "ID USUARIO": ""
+            "SERIAL": ""
         },
         "payload": "",
         "submit": "ENVIAR",
