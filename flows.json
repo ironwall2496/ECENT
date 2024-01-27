@@ -2962,7 +2962,7 @@
         "topicType": "msg",
         "splitLayout": true,
         "className": "",
-        "x": 480,
+        "x": 460,
         "y": 100,
         "wires": [
             [
@@ -2983,7 +2983,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
+        "x": 900,
         "y": 100,
         "wires": []
     },
@@ -3099,11 +3099,11 @@
         "topic": "payload.protocol",
         "topicType": "msg",
         "className": "",
-        "x": 260,
-        "y": 160,
+        "x": 480,
+        "y": 140,
         "wires": [
             [
-                "97317cc0dce5c19a"
+                "e39eb367741e97a2"
             ]
         ]
     },
@@ -3126,11 +3126,11 @@
         "topic": "options",
         "topicType": "msg",
         "className": "",
-        "x": 270,
-        "y": 100,
+        "x": 490,
+        "y": 180,
         "wires": [
             [
-                "97317cc0dce5c19a"
+                "e39eb367741e97a2"
             ]
         ]
     },
@@ -3142,8 +3142,8 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 165,
-        "y": 100,
+        "x": 285,
+        "y": 180,
         "wires": [
             [
                 "f5836af6d9b16272"
@@ -3161,7 +3161,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
+        "x": 720,
         "y": 100,
         "wires": [
             [
