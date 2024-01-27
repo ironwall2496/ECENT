@@ -3157,26 +3157,8 @@
         "y": 100,
         "wires": [
             [
-                "74bb564475ef001f",
-                "a1f4f21a06f14fa6"
+                "74bb564475ef001f"
             ]
         ]
-    },
-    {
-        "id": "a1f4f21a06f14fa6",
-        "type": "debug",
-        "z": "854b8ec8c22a4780",
-        "name": "debug 12",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.protocol",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 900,
-        "y": 140,
-        "wires": []
     }
 ]
