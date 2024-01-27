@@ -2910,13 +2910,6 @@
         "height": 0,
         "options": [
             {
-                "label": "ID",
-                "value": "DEVICE_ID",
-                "type": "number",
-                "required": true,
-                "rows": null
-            },
-            {
                 "label": "NAME",
                 "value": "NOMBRE",
                 "type": "text",
@@ -2932,7 +2925,6 @@
             }
         ],
         "formValue": {
-            "DEVICE_ID": "",
             "NOMBRE": "",
             "SERIAL": ""
         },
