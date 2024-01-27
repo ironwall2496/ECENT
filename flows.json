@@ -3063,28 +3063,28 @@
         "options": [
             {
                 "label": "SNMP",
-                "value": "1",
-                "type": "str"
+                "value": 1,
+                "type": "num"
             },
             {
                 "label": "MODBUS TCP",
-                "value": "2",
-                "type": "str"
+                "value": 2,
+                "type": "num"
             },
             {
                 "label": "MQTT",
-                "value": "3",
-                "type": "str"
+                "value": 3,
+                "type": "num"
             },
             {
                 "label": "DNP3",
-                "value": "4",
-                "type": "str"
+                "value": 4,
+                "type": "num"
             },
             {
                 "label": "PROFIBUS",
-                "value": "5",
-                "type": "str"
+                "value": 5,
+                "type": "num"
             }
         ],
         "payload": "",
