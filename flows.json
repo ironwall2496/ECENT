@@ -2693,8 +2693,8 @@
         "z": "3a08c4b74583061b",
         "name": "tabla para gestion de usuarios",
         "info": "",
-        "x": 260,
-        "y": 80,
+        "x": 420,
+        "y": 20,
         "wires": []
     },
     {
@@ -2750,8 +2750,8 @@
         "topicType": "msg",
         "splitLayout": false,
         "className": "",
-        "x": 220,
-        "y": 120,
+        "x": 380,
+        "y": 60,
         "wires": [
             [
                 "bff1125ecc8557e0",
@@ -2772,8 +2772,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 120,
+        "x": 600,
+        "y": 60,
         "wires": []
     },
     {
@@ -2791,8 +2791,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "material",
-        "x": 300,
-        "y": 280,
+        "x": 460,
+        "y": 220,
         "wires": [
             []
         ]
@@ -2803,8 +2803,8 @@
         "z": "3a08c4b74583061b",
         "name": "PLANTILLA DE LOGIN",
         "info": "",
-        "x": 240,
-        "y": 240,
+        "x": 400,
+        "y": 180,
         "wires": []
     },
     {
@@ -2827,8 +2827,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 240,
-        "y": 160,
+        "x": 400,
+        "y": 100,
         "wires": [
             [
                 "60ba0f0d175f2ffb"
@@ -2844,8 +2844,8 @@
         "links": [
             "851b65379a8cd239"
         ],
-        "x": 375,
-        "y": 160,
+        "x": 535,
+        "y": 100,
         "wires": []
     },
     {
@@ -2854,8 +2854,8 @@
         "z": "3a08c4b74583061b",
         "name": "",
         "info": "",
-        "x": 420,
-        "y": 240,
+        "x": 580,
+        "y": 180,
         "wires": []
     },
     {
@@ -2867,8 +2867,8 @@
         "links": [
             "10c6f08419ab55ec"
         ],
-        "x": 335,
-        "y": 120,
+        "x": 495,
+        "y": 60,
         "wires": []
     },
     {
@@ -2883,8 +2883,8 @@
         "columns": [],
         "outputs": 1,
         "cts": true,
-        "x": 230,
-        "y": 200,
+        "x": 390,
+        "y": 140,
         "wires": [
             [
                 "96f7f32dfdd3e319"
@@ -2899,8 +2899,8 @@
         "links": [
             "e9eb0e576758ac24"
         ],
-        "x": 105,
-        "y": 200,
+        "x": 265,
+        "y": 140,
         "wires": [
             [
                 "10b086019450ccf5"
@@ -2920,8 +2920,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 200,
+        "x": 600,
+        "y": 140,
         "wires": []
     },
     {
