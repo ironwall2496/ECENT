@@ -2446,7 +2446,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "UPDATE_usuarios",
-        "func": "msg.topic=\"UPDATE USUARIOS SET NAME='\" + msg.payload.name + \"', EMAIL='\" + msg.payload.email + \"', PASSWORD='\" + msg.payload.password + \"', LEVEL='\" + msg.payload.level + \"' WHERE USER_ID='\" + msg.payload.id + \"'\";\nreturn msg;",
+        "func": "msg.topic = \"UPDATE USUARIOS SET NAME='\" + msg.payload.Nombre + \"', EMAIL='\" + msg.payload.Correo + \"', PASSWORD='\" + msg.payload[\"Contraseña\"] + \"', LEVEL='\" + msg.payload.Nivel + \"' WHERE USER_ID='\" + msg.payload.ID + \"'\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
