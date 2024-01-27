@@ -2513,14 +2513,14 @@
         "id": "db616c71c06414fc",
         "type": "function",
         "z": "793151554c09c1fc",
-        "name": "SELECT_usuarios",
+        "name": "READ_usuarios",
         "func": "msg.topic = \"SELECT * FROM USUARIOS\";\nmsg.payload = [msg.payload];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
+        "x": 560,
         "y": 1220,
         "wires": [
             [
@@ -2649,6 +2649,23 @@
             [
                 "db616c71c06414fc"
             ]
+        ]
+    },
+    {
+        "id": "59eb71708e4f4202",
+        "type": "function",
+        "z": "793151554c09c1fc",
+        "name": "DELETE_usuarios",
+        "func": "msg.topic = \"Delete From USUARIOS where USER_ID = ?\";\nmsg.payload = [\"6\"];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1300,
+        "wires": [
+            []
         ]
     },
     {
