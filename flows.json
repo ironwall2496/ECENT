@@ -2962,12 +2962,11 @@
         "topicType": "msg",
         "splitLayout": true,
         "className": "",
-        "x": 220,
-        "y": 140,
+        "x": 480,
+        "y": 100,
         "wires": [
             [
-                "f5836af6d9b16272",
-                "7edaca1f92bd7490"
+                "e39eb367741e97a2"
             ]
         ]
     },
@@ -3100,11 +3099,11 @@
         "topic": "payload.protocol",
         "topicType": "msg",
         "className": "",
-        "x": 440,
-        "y": 180,
+        "x": 260,
+        "y": 160,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "97317cc0dce5c19a"
             ]
         ]
     },
@@ -3127,11 +3126,11 @@
         "topic": "options",
         "topicType": "msg",
         "className": "",
-        "x": 430,
+        "x": 270,
         "y": 100,
         "wires": [
             [
-                "e39eb367741e97a2"
+                "97317cc0dce5c19a"
             ]
         ]
     },
@@ -3143,7 +3142,7 @@
         "links": [
             "00b38c2524a4e536"
         ],
-        "x": 285,
+        "x": 165,
         "y": 100,
         "wires": [
             [
