@@ -2481,7 +2481,7 @@
         "id": "10c6f08419ab55ec",
         "type": "link in",
         "z": "793151554c09c1fc",
-        "name": "link in 1",
+        "name": "Crear_Usuarios",
         "links": [
             "41b2e8f18f570413"
         ],
@@ -2532,7 +2532,7 @@
         "id": "851b65379a8cd239",
         "type": "link in",
         "z": "793151554c09c1fc",
-        "name": "link in 2",
+        "name": "Leer_usuarios",
         "links": [
             "60ba0f0d175f2ffb"
         ],
@@ -2643,8 +2643,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 270,
-        "y": 1220,
+        "x": 290,
+        "y": 1260,
         "wires": [
             [
                 "db616c71c06414fc"
@@ -2772,7 +2772,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
+        "x": 800,
         "y": 60,
         "wires": []
     },
@@ -2895,7 +2895,7 @@
         "id": "9ecdfa57ae45f938",
         "type": "link in",
         "z": "3a08c4b74583061b",
-        "name": "link in 3",
+        "name": "Mostrar_tabla",
         "links": [
             "e9eb0e576758ac24"
         ],
