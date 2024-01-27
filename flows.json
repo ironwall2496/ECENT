@@ -2930,14 +2930,14 @@
             {
                 "label": "NAME",
                 "value": "NOMBRE",
-                "type": "email",
+                "type": "text",
                 "required": true,
                 "rows": null
             },
             {
                 "label": "SERIAL",
                 "value": "SERIAL",
-                "type": "password",
+                "type": "number",
                 "required": true,
                 "rows": null
             },
