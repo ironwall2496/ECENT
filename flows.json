@@ -2416,9 +2416,9 @@
         "id": "a2f5d7ce9313fafa",
         "type": "comment",
         "z": "793151554c09c1fc",
-        "name": "LOGICA DE CRUD PARA TABLA DE USUARIOS",
+        "name": "CRUD PARA TABLA DE USUARIOS",
         "info": "",
-        "x": 480,
+        "x": 520,
         "y": 1140,
         "wires": []
     },
@@ -2427,7 +2427,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "CREATE_usuarios",
-        "func": "msg.topic = \"INSERT INTO USUARIOS (NAME, EMAIL, PASSWORD, LEVEL) VALUES (?, ?, ?, ?)\";\nmsg.payload = [msg.payload.Nombre, msg.payload.Correo, msg.payload[\"Contraseña\"], msg.payload.Nivel]\n//msg.topic = \"INSERT INTO department (department_name) VALUES (?)\";\n//msg.payload = [\"test\"];\nreturn msg;\n\n//msg.topic = \"INSERT INTO ?? (??) VALUES (?)\";\n//msg.payload = [\"Department\", \"Department_name\", \"test\"];\n//return msg;",
+        "func": "msg.topic = \"INSERT INTO USUARIOS (NAME, EMAIL, PASSWORD, LEVEL) VALUES (?, ?, ?, ?)\";\nmsg.payload = [msg.payload.Nombre, msg.payload.Correo, msg.payload[\"Contraseña\"], msg.payload.Nivel]\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2473,7 +2473,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
+        "x": 800,
         "y": 1260,
         "wires": []
     },
@@ -2513,14 +2513,14 @@
         "id": "db616c71c06414fc",
         "type": "function",
         "z": "793151554c09c1fc",
-        "name": "READ_usuarios",
+        "name": "READ__usuarios",
         "func": "msg.topic = \"SELECT * FROM USUARIOS\";\nmsg.payload = [msg.payload];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 570,
         "y": 1220,
         "wires": [
             [
@@ -2656,7 +2656,7 @@
         "type": "function",
         "z": "793151554c09c1fc",
         "name": "DELETE_usuarios",
-        "func": "msg.topic = \"Delete From USUARIOS where USER_ID = ?\";\nmsg.payload = [\"6\"];\nreturn msg;\n",
+        "func": "msg.topic = \"Delete From USUARIOS where USER_ID = ?\";\nmsg.payload = [msg.payload.USER_ID];\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2665,8 +2665,27 @@
         "x": 570,
         "y": 1300,
         "wires": [
-            []
+            [
+                "31aaff07236968b9"
+            ]
         ]
+    },
+    {
+        "id": "31aaff07236968b9",
+        "type": "debug",
+        "z": "793151554c09c1fc",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 1300,
+        "wires": []
     },
     {
         "id": "c2d1f4ccf0c9b1aa",
