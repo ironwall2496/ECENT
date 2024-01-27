@@ -2777,37 +2777,6 @@
         "wires": []
     },
     {
-        "id": "e7b413ad9679c278",
-        "type": "ui_template",
-        "z": "3a08c4b74583061b",
-        "group": "fae35d82aba33488",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<!--<div ng-bind-html=\"msg.payload\"></div>-->\n<script>\n    // Función para manejar el formulario de inicio de sesión\nfunction loginUser() {\n    var username = document.getElementById('username').value;\n    var password = document.getElementById('password').value;\n\n    // Aquí deberías realizar la lógica de autenticación, por ejemplo, verificar en una base de datos\n\n    // En este ejemplo, simplemente redireccionamos al usuario a una página después de iniciar sesión\n    window.location.href = \"/dashboard\"; // Cambia \"/dashboard\" con la ruta deseada después del inicio de sesión exitoso\n}\n\n// Función para manejar el formulario de registro de nuevos usuarios\nfunction registerUser() {\n    var newUsername = document.getElementById('newUsername').value;\n    var newPassword = document.getElementById('newPassword').value;\n\n    // Aquí deberías realizar la lógica para registrar un nuevo usuario, por ejemplo, agregarlo a una base de datos\n\n    // En este ejemplo, simplemente mostramos un mensaje después de registrar al nuevo usuario\n    alert(\"Usuario registrado con éxito. Puedes iniciar sesión ahora.\");\n}\n</script>\n\n<h2>Iniciar Sesión</h2>\n<form ng-submit=\"loginUser()\">\n    <label for=\"username\">Usuario:</label>\n    <input type=\"text\" id=\"username\" required>\n    <br>\n    <label for=\"password\">Contraseña:</label>\n    <input type=\"password\" id=\"password\" required>\n    <br>\n    <button type=\"submit\">Iniciar Sesión</button>\n</form>\n\n<h2>Crear Nuevo Usuario</h2>\n<form ng-submit=\"registerUser()\">\n    <label for=\"newUsername\">Nuevo Usuario:</label>\n    <input type=\"text\" id=\"newUsername\" required>\n    <br>\n    <label for=\"newPassword\">Nueva Contraseña:</label>\n    <input type=\"password\" id=\"newPassword\" required>\n    <br>\n    <button type=\"submit\">Registrarse</button>\n</form>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "material",
-        "x": 460,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b523b5138187c910",
-        "type": "comment",
-        "z": "3a08c4b74583061b",
-        "name": "PLANTILLA DE LOGIN",
-        "info": "",
-        "x": 400,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "23b26f9b2a061f7f",
         "type": "ui_button",
         "z": "3a08c4b74583061b",
@@ -2846,16 +2815,6 @@
         ],
         "x": 535,
         "y": 100,
-        "wires": []
-    },
-    {
-        "id": "f65ca8d80dde4d03",
-        "type": "comment",
-        "z": "3a08c4b74583061b",
-        "name": "",
-        "info": "",
-        "x": 580,
-        "y": 180,
         "wires": []
     },
     {
