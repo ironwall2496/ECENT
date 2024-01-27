@@ -3193,11 +3193,11 @@
         "type": "http in",
         "z": "282d9caaa7c32e3d",
         "name": "",
-        "url": "/index",
+        "url": "/usuarios",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 100,
+        "x": 110,
         "y": 136,
         "wires": [
             [
@@ -3210,6 +3210,8 @@
         "type": "http response",
         "z": "282d9caaa7c32e3d",
         "name": "",
+        "statusCode": "",
+        "headers": {},
         "x": 842,
         "y": 136,
         "wires": []
@@ -3274,6 +3276,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 348,
         "y": 56,
         "wires": [
@@ -3320,6 +3323,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 302,
         "y": 200,
         "wires": [
@@ -3338,6 +3342,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 302,
         "y": 264,
         "wires": [
@@ -3356,6 +3361,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 302,
         "y": 328,
         "wires": [
@@ -3374,6 +3380,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 302,
         "y": 136,
         "wires": [
@@ -3387,33 +3394,15 @@
         "type": "json",
         "z": "282d9caaa7c32e3d",
         "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
         "x": 458,
         "y": 136,
         "wires": [
             [
                 "a8dde467.e5dcd8"
             ]
-        ]
-    },
-    {
-        "id": "07d98cfa83844359",
-        "type": "ui_template",
-        "z": "282d9caaa7c32e3d",
-        "group": "8880d363.148ac",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "format": "<!DOCTYPE html>\n<html lang=\"en-GB\">\n\n<head>\n    <title>Users</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css\" />\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\"\n        href=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css\" />\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js\"></script>\n\n    <script type=\"text/javascript\">\n        $(function () {\n            console.log(\"crud demo\");\n\n            var db = {{#payload}}{{{.}}}{{/payload}};\n\n            $(\"#jsgrid\").jsGrid({\n                width: \"100%\",\n                inserting: true,\n                editing: true,\n                sorting: true,\n                paging: true,\n\n                data: db,\n\n                fields: [\n                    { title:\"ID\", name: \"id\", type: \"number\", width: 20, readOnly: true },\n                    { title:\"User ID\", name: \"userID\", type: \"text\", width: 50 },\n                    { title:\"First Name\", name: \"foreName\", type: \"text\", width: 50 },\n                    { title:\"Last Name\", name: \"sirName\", type: \"text\", width: 50 },\n                    { title:\"Age\", name: \"age\", type:\"number\", width: 25},\n                    { type: \"control\" }\n                ],\n           \n                controller: {\n                    insertItem: function(item) {\n                        return $.ajax({\n                            type: \"POST\",\n                            url: \"/insert\",\n                            data: item\n                        });\n                    },\n                    updateItem: function(item) {\n                       return $.ajax({\n                            type: \"PUT\",\n                            url: \"/update\",\n                            data: item\n                        });\n                    },\n                    deleteItem: function(item) {\n                        return $.ajax({\n                            type: \"DELETE\",\n                            url: \"/delete\",\n                            data: item\n                        });\n                    }\n                }   \n            });\n        });\n    \n    </script>\n</head>\n\n<body class=\"container\">\n    <section class=\"row\">\n\n        <div class=\"col-md-6\"></div>\n        <div class=\"col-md-6\" id=\"jsgrid\">\n        </div>\n    </section>\n</body>\n\n</html>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 720,
-        "y": 380,
-        "wires": [
-            []
         ]
     }
 ]
