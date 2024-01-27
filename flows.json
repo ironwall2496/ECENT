@@ -291,7 +291,7 @@
         "name": "crud_usuarios",
         "link": "/usuarios",
         "icon": "open_in_browser",
-        "target": "thistab",
+        "target": "iframe",
         "order": 1
     },
     {
