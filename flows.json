@@ -3105,7 +3105,7 @@
         "z": "854b8ec8c22a4780",
         "name": "",
         "label": "USUARIO",
-        "tooltip": "",
+        "tooltip": "Usuario asignado a los equipos",
         "place": "Seleciona un usuario",
         "group": "edcf9a7bf066cd27",
         "order": 1,
