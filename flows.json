@@ -2548,7 +2548,7 @@
         "id": "e9eb0e576758ac24",
         "type": "link out",
         "z": "793151554c09c1fc",
-        "name": "DB_RESPONSE",
+        "name": "Datos_sin_password",
         "mode": "link",
         "links": [
             "9ecdfa57ae45f938"
@@ -2600,7 +2600,7 @@
         "id": "00b38c2524a4e536",
         "type": "link out",
         "z": "793151554c09c1fc",
-        "name": "Nombres de usuarios",
+        "name": "Nombres_de_usuarios",
         "mode": "link",
         "links": [
             "c32cc1d9a56b728b"
